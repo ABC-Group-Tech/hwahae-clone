@@ -22,7 +22,7 @@ const awardCategories = [
     name: "뷰티 어워드",
     description: "천 만의 선택을 받은\n뷰티 제품",
     icon: "https://img.hwahae.co.kr/award_v2/196/icon/20251113_144312777081.png",
-    href: "/awards/beauty",
+    href: "/awards/hall-of-fame",
     badge: null,
   },
   {
@@ -30,7 +30,7 @@ const awardCategories = [
     name: "베스트 신제품",
     description: "하반기에 뜨거운\n관심을 얻은 루키 제품",
     icon: "https://img.hwahae.co.kr/award_v2/197/icon/20251113_144434788530.png",
-    href: "/awards/best-new",
+    href: "/awards/efficacy",
     badge: "하반기",
   },
   {
@@ -46,7 +46,7 @@ const awardCategories = [
     name: "비건",
     description: "지속 가능한 삶을\n만드는 비건 제품",
     icon: "https://img.hwahae.co.kr/award_v2/231/icon/20251113_150738249500.png",
-    href: "/awards/vegan",
+    href: "/awards/efficacy",
     badge: "하반기",
   },
   {
@@ -54,7 +54,7 @@ const awardCategories = [
     name: "넥스트 뷰티",
     description: "신생 브랜드의 제품 중\n아직 발견되지 않은 우수 제품",
     icon: "https://img.hwahae.co.kr/award_v2/232/icon/20251113_150849816589.png",
-    href: "/awards/next-beauty",
+    href: "/awards/efficacy",
     badge: "하반기",
   },
   {
@@ -62,7 +62,7 @@ const awardCategories = [
     name: "라이징 트렌드",
     description: "빠르게 주목받은\n인기 급상승 랭킹 제품",
     icon: "https://img.hwahae.co.kr/award_v2/253/icon/20251113_151713474046.png",
-    href: "/awards/rising-trend",
+    href: "/awards/efficacy",
     badge: "하반기",
   },
   {
@@ -70,7 +70,7 @@ const awardCategories = [
     name: "베스트 신제품",
     description: "상반기에 뜨거운\n관심을 얻은 루키 제품",
     icon: "https://img.hwahae.co.kr/award_v2/116/icon/20250519_154634699292.png",
-    href: "/awards/best-new-first",
+    href: "/awards/efficacy",
     badge: "상반기",
   },
   {
@@ -86,7 +86,7 @@ const awardCategories = [
     name: "비건",
     description: "지속 가능한 삶을\n만드는 비건 제품",
     icon: "https://img.hwahae.co.kr/award_v2/152/icon/20250519_212026522554.png",
-    href: "/awards/vegan-first",
+    href: "/awards/efficacy",
     badge: "상반기",
   },
   {
@@ -94,7 +94,7 @@ const awardCategories = [
     name: "넥스트 뷰티",
     description: "신생 브랜드의 제품 중\n아직 발견되지 않은 우수 제품",
     icon: "https://img.hwahae.co.kr/award_v2/153/icon/20250519_150126050064.png",
-    href: "/awards/next-beauty-first",
+    href: "/awards/efficacy",
     badge: "상반기",
   },
   {
@@ -102,7 +102,7 @@ const awardCategories = [
     name: "라이징 트렌드",
     description: "빠르게 주목받은\n인기 급상승 랭킹 제품",
     icon: "https://img.hwahae.co.kr/award_v2/176/icon/20250519_212651774970.png",
-    href: "/awards/rising-trend-first",
+    href: "/awards/efficacy",
     badge: "상반기",
   },
 ]
