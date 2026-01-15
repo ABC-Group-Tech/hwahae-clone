@@ -3,11 +3,9 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Trophy, Award, Star, Sparkles, Leaf, TrendingUp, ChevronRight } from "lucide-react"
-import StickyHeader from "@/components/sticky-header"
+import AwardsHeaderExtended from "@/components/awards-header-extended"
 import Footer from "@/components/footer"
 import ScrollToTopButton from "@/components/scroll-to-top-button"
-
-const years = ["2025", "2024", "2023", "2022"]
 
 const awardCategories = [
   {
@@ -66,30 +64,11 @@ export default function AwardsPageClient() {
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
       <div className="max-w-[600px] mx-auto bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]">
-        <StickyHeader />
+        <AwardsHeaderExtended selectedYear={selectedYear} onYearChange={setSelectedYear} />
 
         <main className="pb-8">
-          {/* Year Selector */}
-          <div className="px-4 py-4">
-            <div className="flex gap-2">
-              {years.map((year) => (
-                <button
-                  key={year}
-                  onClick={() => setSelectedYear(year)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    selectedYear === year
-                      ? "bg-[#f39800] text-white"
-                      : "border border-gray-300 text-gray-600 hover:border-gray-400"
-                  }`}
-                >
-                  {year}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Title */}
-          <div className="px-4 pb-6">
+          <div className="px-4 pt-6 pb-6">
             <h2 className="text-2xl font-bold text-gray-900">ABCPharm 어워드 {selectedYear}</h2>
             <p className="text-sm text-gray-500 mt-1">고객이 선택한 최고의 제품을 만나보세요</p>
           </div>
