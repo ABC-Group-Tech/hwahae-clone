@@ -36,7 +36,7 @@ export default function GoodsDetailPageClient() {
         {/* pb-20: 하단 고정 버튼 공간 확보 (80px) */}
         <main className="pb-20">
           {/* 첫 구매 배너 */}
-          <Link className="flex w-full items-center px-5 py-4 bg-purple-50" href="/deal-event/989">
+          <div className="flex w-full items-center px-5 py-4 bg-purple-50">
             <span className="flex flex-shrink-0 w-[42px] h-[42px] object-cover">
               <Image src="/images/250313_icon_144x144.png" alt="coupon" width={42} height={42} />
             </span>
@@ -47,7 +47,7 @@ export default function GoodsDetailPageClient() {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" className="flex flex-shrink-0 ml-3 text-purple-500">
               <path fill="currentColor" d="M8.26 4.192a.808.808 0 0 1 1.107.057l6.166 6.583a1.695 1.695 0 0 1 0 2.336l-6.166 6.583a.808.808 0 0 1-1.106.057.728.728 0 0 1-.06-1.059l6.165-6.582a.242.242 0 0 0 0-.334L8.2 5.251a.728.728 0 0 1 .06-1.06Z" />
             </svg>
-          </Link>
+          </div>
 
           {/* 상품 이미지 슬라이더 */}
           <div className="pb-4">
@@ -113,12 +113,7 @@ export default function GoodsDetailPageClient() {
           </button>
 
           {/* 판매 옵션 보기 */}
-          <Link
-            className="flex justify-between mt-4 p-2 pr-4 bg-white items-center rounded-lg border border-gray-900"
-            href="54413/relation-goods"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <div className="flex justify-between mt-4 p-2 pr-4 bg-white items-center rounded-lg border border-gray-900">
             <div className="flex flex-grow items-center">
               <span className="flex flex-shrink-0">
                 <div className="relative w-[52px] h-[52px]">
@@ -141,7 +136,7 @@ export default function GoodsDetailPageClient() {
                 d="M14.721 9c1.02 0 1.628 1.028 1.062 1.795l-2.72 3.69c-.506.686-1.62.686-2.125 0l-2.721-3.69C7.65 10.028 8.259 9 9.279 9z"
               />
             </svg>
-          </Link>
+          </div>
 
           {/* 가격 정보 */}
           <div className="pb-3">
@@ -173,12 +168,7 @@ export default function GoodsDetailPageClient() {
               <p className="text-sm text-gray-900">
                 상품에 적용 가능한 <em className="text-base font-semibold text-gray-900">쿠폰</em>이 있어요!
               </p>
-              <Link
-                href="54413/coupon-download"
-                rel="noreferrer noopener"
-                target="_blank"
-                className="inline-flex justify-center items-center px-4 h-11 rounded-lg text-base font-semibold bg-[#f39800] text-white ml-1 shrink-0"
-              >
+              <button className="inline-flex justify-center items-center px-4 h-11 rounded-lg text-base font-semibold bg-[#f39800] text-white ml-1 shrink-0">
                 쿠폰 다운
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" className="ml-0.5">
                   <path
@@ -186,7 +176,7 @@ export default function GoodsDetailPageClient() {
                     d="M8.26 4.192a.808.808 0 0 1 1.107.057l6.166 6.583a1.695 1.695 0 0 1 0 2.336l-6.166 6.583a.808.808 0 0 1-1.106.057.728.728 0 0 1-.06-1.059l6.165-6.582a.242.242 0 0 0 0-.334L8.2 5.251a.728.728 0 0 1 .06-1.06Z"
                   />
                 </svg>
-              </Link>
+              </button>
             </div>
             <div className="flex text-sm text-gray-900 mt-2">
               <span className="flex-shrink-0 w-[110px]">최대 할인 쿠폰 다운 시</span>
@@ -698,10 +688,10 @@ export default function GoodsDetailPageClient() {
         )}
       </div>
 
-        {/* Footer */}
-        <div className="pb-10">
-          <Footer />
-        </div>
+          {/* Footer */}
+          <div className="pb-10">
+            <Footer />
+          </div>
         </main>
 
         {/* 장바구니 버튼 */}
