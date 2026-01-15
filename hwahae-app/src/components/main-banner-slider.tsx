@@ -8,17 +8,17 @@ const banners = [
   {
     id: 1,
     label: "Banner Image 1",
-    image: "",
+    image: "https://img.hwahae.co.kr/commerce/deal_events/exposures/20251001/20251001210907470_e9d5a551-40e2-4f9d-905d-e17195658b4a.png",
   },
   {
     id: 2,
     label: "Banner Image 2",
-    image: "",
+    image: "https://img.hwahae.co.kr/commerce/deal_events/exposures/20250805/20250805102322299_4c10429d-4dae-419e-93ad-9a5bf8968167.png",
   },
   {
     id: 3,
     label: "Banner Image 3",
-    image: "",
+    image: "https://img.hwahae.co.kr/commerce/deal_events/exposures/20251104/20251104173724303_ab53f5fc-c462-48de-8cc5-3d69a19a8bd2.png",
   },
 ]
 
@@ -110,7 +110,7 @@ export default function MainBannerSlider() {
           {banners.map((banner) => (
             <div
               key={banner.id}
-              className="min-w-full aspect-[3/2] bg-gray-200 flex items-center justify-center relative"
+              className="min-w-full aspect-[3/2] bg-white flex items-center justify-center relative"
               onClick={handleBannerClick}
             >
               {banner.image ? (
@@ -118,7 +118,7 @@ export default function MainBannerSlider() {
                   src={banner.image}
                   alt={banner.label}
                   fill
-                  className="object-cover pointer-events-none"
+                  className="object-contain pointer-events-none"
                   unoptimized
                   draggable={false}
                 />
