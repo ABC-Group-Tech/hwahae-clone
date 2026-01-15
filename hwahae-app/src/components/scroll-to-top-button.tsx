@@ -28,7 +28,7 @@ export default function ScrollToTopButton() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-[0] left-[0] w-full pointer-events-none z-30">
+    <div className="fixed bottom-[80px] left-[0] w-full pointer-events-none z-30">
       <div className="flex justify-end max-w-[600px] mx-auto">
         <button
           onClick={scrollToTop}

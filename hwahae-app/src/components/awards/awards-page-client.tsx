@@ -2,59 +2,108 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Trophy, Award, Star, Sparkles, Leaf, TrendingUp, ChevronRight } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import AwardsHeaderExtended from "@/components/awards-header-extended"
 import Footer from "@/components/footer"
 import ScrollToTopButton from "@/components/scroll-to-top-button"
+import Image from "next/image"
 
 const awardCategories = [
   {
-    id: "hall-of-fame",
-    title: "명예의 전당",
-    subtitle: "영원히 기억될 최고의 제품",
-    icon: Trophy,
-    bgColor: "bg-gradient-to-br from-amber-100 to-amber-50",
+    id: 195,
+    name: "명예의 전당",
+    description: "역대 ABCPharm 어워드에서\n가장 사랑받은 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/195/icon/20251113_144224567871.png",
     href: "/awards/hall-of-fame",
+    badge: null,
   },
   {
-    id: "beauty-awards",
-    title: "뷰티 어워드",
-    subtitle: "올해의 뷰티 트렌드를 이끈 제품",
-    icon: Award,
-    bgColor: "bg-gradient-to-br from-pink-100 to-pink-50",
+    id: 196,
+    name: "뷰티 어워드",
+    description: "천 만의 선택을 받은\n뷰티 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/196/icon/20251113_144312777081.png",
     href: "/awards/beauty",
+    badge: null,
   },
   {
-    id: "best-new",
-    title: "하반기 베스트 신제품",
-    subtitle: "새롭게 주목받은 신제품",
-    icon: Star,
-    bgColor: "bg-gradient-to-br from-blue-100 to-blue-50",
+    id: 197,
+    name: "베스트 신제품",
+    description: "하반기에 뜨거운\n관심을 얻은 루키 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/197/icon/20251113_144434788530.png",
     href: "/awards/best-new",
+    badge: "하반기",
   },
   {
-    id: "efficacy",
-    title: "하반기 효능/효과",
-    subtitle: "피부 고민별 최고의 제품",
-    icon: Sparkles,
-    bgColor: "bg-gradient-to-br from-purple-100 to-purple-50",
+    id: 198,
+    name: "효능/효과",
+    description: "피부 고민 해결을 위한\n필수 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/198/icon/20251113_144540561392.png",
     href: "/awards/efficacy",
+    badge: "하반기",
   },
   {
-    id: "vegan",
-    title: "하반기 비건",
-    subtitle: "자연을 생각한 클린 뷰티",
-    icon: Leaf,
-    bgColor: "bg-gradient-to-br from-green-100 to-green-50",
+    id: 231,
+    name: "비건",
+    description: "지속 가능한 삶을\n만드는 비건 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/231/icon/20251113_150738249500.png",
     href: "/awards/vegan",
+    badge: "하반기",
   },
   {
-    id: "next-beauty",
-    title: "하반기 넥스트 뷰티",
-    subtitle: "미래를 이끌 뷰티 트렌드",
-    icon: TrendingUp,
-    bgColor: "bg-gradient-to-br from-cyan-100 to-cyan-50",
+    id: 232,
+    name: "넥스트 뷰티",
+    description: "신생 브랜드의 제품 중\n아직 발견되지 않은 우수 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/232/icon/20251113_150849816589.png",
     href: "/awards/next-beauty",
+    badge: "하반기",
+  },
+  {
+    id: 253,
+    name: "라이징 트렌드",
+    description: "빠르게 주목받은\n인기 급상승 랭킹 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/253/icon/20251113_151713474046.png",
+    href: "/awards/rising-trend",
+    badge: "하반기",
+  },
+  {
+    id: 116,
+    name: "베스트 신제품",
+    description: "상반기에 뜨거운\n관심을 얻은 루키 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/116/icon/20250519_154634699292.png",
+    href: "/awards/best-new-first",
+    badge: "상반기",
+  },
+  {
+    id: 117,
+    name: "효능/효과",
+    description: "피부 고민 해결을 위한\n필수 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/117/icon/20250519_194046168184.png",
+    href: "/awards/efficacy-first",
+    badge: "상반기",
+  },
+  {
+    id: 152,
+    name: "비건",
+    description: "지속 가능한 삶을\n만드는 비건 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/152/icon/20250519_212026522554.png",
+    href: "/awards/vegan-first",
+    badge: "상반기",
+  },
+  {
+    id: 153,
+    name: "넥스트 뷰티",
+    description: "신생 브랜드의 제품 중\n아직 발견되지 않은 우수 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/153/icon/20250519_150126050064.png",
+    href: "/awards/next-beauty-first",
+    badge: "상반기",
+  },
+  {
+    id: 176,
+    name: "라이징 트렌드",
+    description: "빠르게 주목받은\n인기 급상승 랭킹 제품",
+    icon: "https://img.hwahae.co.kr/award_v2/176/icon/20250519_212651774970.png",
+    href: "/awards/rising-trend-first",
+    badge: "상반기",
   },
 ]
 
@@ -64,45 +113,116 @@ export default function AwardsPageClient() {
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
       <div className="max-w-[600px] mx-auto bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]">
-        <AwardsHeaderExtended selectedYear={selectedYear} onYearChange={setSelectedYear} />
+        <AwardsHeaderExtended />
 
         <main className="pb-8">
-          {/* Title */}
-          <div className="px-4 pt-6 pb-6">
-            <h2 className="text-2xl font-bold text-gray-900">ABCPharm 어워드 {selectedYear}</h2>
-            <p className="text-sm text-gray-500 mt-1">고객이 선택한 최고의 제품을 만나보세요</p>
-          </div>
+          {/* Hero Section with Video and Background Images */}
+          <div className="relative w-full h-full">
+            <div className="absolute top-0 left-0 w-full">
+              {/* Video Background */}
+              <h2>
+                <video
+                  src="https://img.hwahae.co.kr/award_v2/115/main_video/20251119_085928362607.mp4"
+                  width="100%"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  className="w-full"
+                />
+              </h2>
 
-          {/* Award Category Cards Grid */}
-          <div className="px-4 grid grid-cols-2 gap-3">
-            {awardCategories.map((category) => {
-              const Icon = category.icon
-              return (
-                <Link
-                  key={category.id}
-                  href={category.href}
-                  className={`${category.bgColor} rounded-xl p-4 flex flex-col justify-between min-h-[140px] transition-transform active:scale-[0.98]`}
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-gray-700" />
-                    </div>
-                    <h3 className="font-bold text-gray-900 text-sm">{category.title}</h3>
-                    <p className="text-xs text-gray-600 mt-1 line-clamp-2">{category.subtitle}</p>
-                  </div>
-                  <div className="flex justify-end mt-2">
-                    <ChevronRight className="w-5 h-5 text-gray-400" />
-                  </div>
-                </Link>
-              )
-            })}
-          </div>
+              {/* Background Image - Middle */}
+              <picture className="m-0 p-0">
+                <source
+                  srcSet="https://img.hwahae.co.kr/award_v2/115/background/20251119_085928230833.png?format=webp 1x, https://img.hwahae.co.kr/award_v2/115/background/20251119_085928230833.png?format=webp 2x"
+                  type="image/webp"
+                />
+                <img
+                  className="touch-action-none pointer-events-none h-auto w-full align-top transition-opacity duration-75 opacity-100"
+                  alt="2025's banner home middle image"
+                  src="https://img.hwahae.co.kr/award_v2/115/background/20251119_085928230833.png"
+                  style={{ clipPath: "inherit" }}
+                />
+              </picture>
 
-          {/* Featured Banner */}
-          <div className="px-4 mt-6">
-            <div className="bg-gray-200 rounded-xl h-32 flex items-center justify-center text-gray-500 text-sm">
-              어워드 프로모션 배너
+              {/* Background Image - Bottom - Temporarily hidden */}
+              {/* <picture className="m-0 p-0">
+                <img
+                  className="touch-action-none pointer-events-none h-auto w-full align-top transition-opacity duration-75 opacity-100"
+                  alt="2025's banner home bottom image"
+                  src="/images/award-home-bottom-bg-image.webp"
+                  style={{ clipPath: "inherit" }}
+                />
+              </picture> */}
             </div>
+
+            {/* Content Section */}
+            <section className="flex flex-col px-[24px] pt-[77%] relative z-[1]">
+              {/* Year Selector */}
+              <div className="flex">
+                <div
+                  role="button"
+                  className="flex items-center justify-center gap-4 cursor-pointer"
+                  tabIndex={0}
+                >
+                  <span className="text-[42px] font-[600] leading-[42px]">{selectedYear}</span>
+                  <ChevronDown className="w-6 h-6" />
+                </div>
+              </div>
+
+              {/* Award Categories Grid */}
+              <ul className="grid grid-cols-2 gap-x-2.5 gap-y-3 justify-center pt-5">
+                {awardCategories.map((award) => (
+                  <li key={award.id}>
+                    <Link
+                      className="flex flex-col relative bg-white bg-opacity-60 shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)] p-4 rounded-2xl h-full"
+                      href={award.href}
+                    >
+                      {/* Icon */}
+                      <div className="flex justify-center">
+                        <div className="relative">
+                          <picture className="m-0 p-0">
+                            <img
+                              className="touch-action-none pointer-events-none align-top transition-opacity duration-75 opacity-100 w-[60px] h-[60px]"
+                              alt={`${award.name} award icon`}
+                              src={award.icon}
+                              style={{ clipPath: "inherit" }}
+                            />
+                          </picture>
+                        </div>
+                      </div>
+
+                      {/* Title and Description */}
+                      <div className="flex flex-col gap-1 justify-center items-center mt-2">
+                        <span className="flex flex-col text-gray-900 font-pretendard text-base font-bold leading-6 text-center">
+                          {award.badge && (
+                            <span className="inline-block rounded-[4px] h-4 px-1 text-[11px] font-medium leading-4 bg-[#FFF4E6] text-[#f39800] w-fit mx-auto mb-1">
+                              {award.badge}
+                            </span>
+                          )}
+                          <span className="text-base leading-6 font-bold">{award.name}</span>
+                        </span>
+                        <div className="text-gray-600 leading-[18px] text-[13px] font-normal text-center whitespace-pre-line">
+                          {award.description}
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Bottom Button */}
+              <div className="mt-5">
+                <Link
+                  className="inline-flex justify-center items-center appearance-none px-20 h-[52px] rounded-lg text-base bg-[#f39800] hover:bg-[#e08900] active:bg-[#e08900] text-white w-full"
+                  href="/awards/about"
+                >
+                  ABCPharm 어워드를 소개합니다
+                  <ChevronRight className="w-5 h-5 ml-1" />
+                </Link>
+              </div>
+            </section>
           </div>
         </main>
 

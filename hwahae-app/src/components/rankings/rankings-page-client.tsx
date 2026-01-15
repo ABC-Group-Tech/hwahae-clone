@@ -458,7 +458,7 @@ export default function RankingsPageClient() {
                   {/* Brand Products */}
                   <div className="space-y-4">
                     {brand.products.map((product) => (
-                      <Link key={product.id} href={`/product/${product.id}`} className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#FAFAFA] transition-colors shadow-sm">
+                      <Link key={product.id} href="/product/sample" className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#FAFAFA] transition-colors shadow-sm">
                         {/* Product Image */}
                         <div className="w-[72px] h-[72px] bg-gray-200 rounded-lg shrink-0 flex items-center justify-center">
                           <span className="text-gray-400 text-[10px]">이미지</span>
@@ -485,7 +485,7 @@ export default function RankingsPageClient() {
               <div className="px-4 space-y-3 py-3">
                 {dummyProducts.slice(0, displayCount).map((product, index) => (
                   <Link
-                    href={`/product/${product.id}`}
+                    href="/product/sample"
                     key={product.id}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#FAFAFA] transition-colors shadow-sm"
                   >

@@ -64,7 +64,7 @@ export default function TrendingRankings() {
         setHasDragged(false)
         return
       }
-      window.location.href = `/product/${productId}`
+      window.location.href = "/product/sample"
     },
     [hasDragged]
   )

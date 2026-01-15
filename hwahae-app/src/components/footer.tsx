@@ -21,7 +21,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-white py-12 px-6">
+    <footer className="bg-white pt-6 pb-12 px-6">
       {/* Header Section - Logo and Business Info Button */}
       <div className="flex flex-row items-center justify-center gap-3 mb-5">
         <div className="flex items-center gap-1.5">

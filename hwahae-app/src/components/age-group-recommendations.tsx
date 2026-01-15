@@ -148,7 +148,7 @@ function BronzeMedal() {
 function ProductCard({ product, rank }: { product: (typeof products)[0]; rank: number }) {
   return (
     <li className="bg-white w-[320px]">
-      <Link className="flex items-center" href={`/product/${product.id}`}>
+      <Link className="flex items-center" href="/product/sample">
         <div className="flex-shrink-0 space-y-1">
           <div className="flex items-center text-2xl shrink-0 w-[30px] flex-col mr-1 leading-[15px] h-[72px] justify-center">
             {rank === 1 ? <GoldMedal /> : rank === 2 ? <SilverMedal /> : rank === 3 ? <BronzeMedal /> : <div>{rank}</div>}
