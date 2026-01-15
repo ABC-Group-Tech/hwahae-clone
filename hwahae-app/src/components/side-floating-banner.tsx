@@ -20,9 +20,7 @@ export default function SideFloatingBanner() {
 
       {/* QR Code Box */}
       <div className="flex items-center justify-center mt-5 w-[120px] h-[120px] rounded-2xl bg-white shadow-md">
-        <div className="w-[88px] h-[88px] bg-gray-300 flex items-center justify-center">
-          <span className="text-xs text-gray-500">QR</span>
-        </div>
+        <Image src="/hwahae-qr.png" alt="화해 QR 코드" width={88} height={88} className="rounded" />
       </div>
     </div>
   )
