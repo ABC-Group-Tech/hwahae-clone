@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 const tabs = [
   { name: "홈", href: "/" },
   { name: "랭킹", href: "/rankings?english_name=trending&theme_id=5102" },
-  { name: "어워드", href: "/awards/home" },
+  { name: "어워드", href: "/awards" },
 ]
 
 // 히스테리시스 임계값: 위로 스크롤할 때와 아래로 스크롤할 때 다른 값 적용
