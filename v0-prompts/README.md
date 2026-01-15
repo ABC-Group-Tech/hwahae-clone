@@ -1,6 +1,6 @@
 # v0 프롬프트: ABCPharm 웹사이트
 
-> 화해(hwahae.co.kr) 벤치마킹 기반 뷰티/헬스 플랫폼 제작용
+> ABC Pharm(hwahae.co.kr) 벤치마킹 기반 뷰티/헬스 플랫폼 제작용
 
 ## 사용 방법
 
@@ -134,7 +134,7 @@ ABCPharm 웹사이트의 헤더를 수정해주세요:
 
 ---
 
-## 참고: 화해 원본 URL
+## 참고: ABC Pharm 원본 URL
 
 | 페이지 | URL |
 |--------|-----|
@@ -156,5 +156,5 @@ ABCPharm 웹사이트의 헤더를 수정해주세요:
 
 ## 스크린샷
 
-`.playwright-mcp/` 폴더에 캡처된 화해 페이지 스크린샷 참고:
+`.playwright-mcp/` 폴더에 캡처된 ABC Pharm 페이지 스크린샷 참고:
 - `hwahae-home.png`, `hwahae-rankings.png`, `hwahae-awards-home.png` 등
