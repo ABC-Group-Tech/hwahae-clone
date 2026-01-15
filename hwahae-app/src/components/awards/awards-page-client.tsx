@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Trophy, Award, Star, Sparkles, Leaf, TrendingUp, ChevronRight } from "lucide-react"
-import AwardsHeader from "@/components/awards-header"
+import StickyHeader from "@/components/sticky-header"
 import Footer from "@/components/footer"
 import ScrollToTopButton from "@/components/scroll-to-top-button"
 
@@ -66,7 +66,7 @@ export default function AwardsPageClient() {
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
       <div className="max-w-[600px] mx-auto bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]">
-        <AwardsHeader activeTab="어워드" />
+        <StickyHeader />
 
         <main className="pb-8">
           {/* Year Selector */}
