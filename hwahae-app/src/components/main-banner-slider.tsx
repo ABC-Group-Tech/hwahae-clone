@@ -8,17 +8,17 @@ const banners = [
   {
     id: 1,
     label: "Banner Image 1",
-    image: "https://img.hwahae.co.kr/commerce/deal_events/exposures/20260112/20260112232002672_419c73d0-f963-4979-a0e4-be27818a5ac5.png",
+    image: "",
   },
   {
     id: 2,
     label: "Banner Image 2",
-    image: "https://img.hwahae.co.kr/commerce/deal_events/exposures/20251001/20251001210907470_e9d5a551-40e2-4f9d-905d-e17195658b4a.png",
+    image: "",
   },
   {
     id: 3,
     label: "Banner Image 3",
-    image: "https://img.hwahae.co.kr/commerce/deal_events/exposures/20250805/20250805102322299_4c10429d-4dae-419e-93ad-9a5bf8968167.png",
+    image: "",
   },
 ]
 

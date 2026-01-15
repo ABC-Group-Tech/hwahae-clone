@@ -97,35 +97,38 @@ export default function RankingsHeader({ activeTab = "랭킹" }: RankingsHeaderP
       </div>
 
       {/* Navigation Tabs - Always visible */}
-      <nav className="flex border-b border-[#e5e5e5] bg-white">
+      <nav className="px-5 py-[13px] flex items-center gap-6 border-b border-[#E8E8E8] bg-white transition-all duration-300 ease-in-out overflow-hidden max-h-[60px] opacity-100">
         {tabs.map((tab) => (
           <Link
             key={tab.name}
             href={tab.href}
-            prefetch={false}
-            className={`flex-1 py-3 text-sm font-bold relative text-center ${
-              activeTab === tab.name ? "text-[#1a1a1a]" : "text-[#727171]"
+            className={`text-base ${
+              activeTab === tab.name ? "text-[#1a1a1a] font-semibold" : "text-[#727171]"
             }`}
           >
             {tab.name}
-            {activeTab === tab.name && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#f39800]" />}
           </Link>
         ))}
       </nav>
 
       {/* Main Tab Navigation */}
-      <div className="px-4 py-3 overflow-x-auto scrollbar-hide bg-white">
-        <div className="flex gap-2">
-          {mainTabs.map((tab) => (
-            <Link
-              key={tab}
-              href={`/rankings?tab=${tab}`}
-              className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap transition-colors ${
-                activeMainTab === tab ? "bg-[#f39800] text-white" : "border border-[#E5E5E5] text-[#727171]"
-              }`}
-            >
-              {tab}
-            </Link>
+      <div className="overflow-x-auto scrollbar-hide bg-white">
+        <div className="flex [&>*]:flex-shrink-0 border-b border-gray-300 gap-6 px-5">
+          {mainTabs.map((tab, index) => (
+            <div key={tab}>
+              <Link
+                href={`/rankings?tab=${tab}`}
+                className={`relative flex flex-col items-center text-base h-[44px] ${
+                  activeMainTab === tab ? "text-[#1a1a1a] font-semibold" : "text-[#727171]"
+                }`}
+              >
+                <span className={`relative grow leading-[42px] ${
+                  activeMainTab === tab ? "border-b-2 border-gray-900" : ""
+                }`}>
+                  {tab}
+                </span>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
@@ -140,18 +143,21 @@ export default function RankingsHeader({ activeTab = "랭킹" }: RankingsHeaderP
           />
         </div>
       ) : activeMainTab !== "브랜드" && subFilters[activeMainTab]?.length > 0 ? (
-        <div className="px-4 pb-3 pt-0 overflow-x-auto scrollbar-hide bg-white border-b border-[#E5E5E5]">
-          <div className="flex gap-2">
+        <div className="bg-white w-full max-w-[600px] py-2.5 px-[0px] z-30 border-b border-[#E5E5E5]">
+          <div className="relative flex items-center overflow-x-auto scrollbar-hide gap-2 [&>*]:flex-shrink-0 min-w-full !mx-[0] [&>label:first-child]:pl-5 [&>label:last-child]:pr-20 z-30">
             {subFilters[activeMainTab].map((filter) => (
-              <Link
-                key={filter}
-                href={`/rankings?tab=${activeMainTab}&filter=${filter}`}
-                className={`px-3 py-1.5 text-xs font-medium rounded-full whitespace-nowrap transition-colors ${
-                  activeSubFilter === filter ? "bg-[#f39800] text-white" : "bg-[#F5F5F5] text-[#727171]"
-                }`}
-              >
-                {filter}
-              </Link>
+              <label key={filter} className="inline-flex items-center text-base text-[#1a1a1a]" htmlFor={`filter-${filter}`}>
+                <input className="hidden" id={`filter-${filter}`} type="checkbox" checked={activeSubFilter === filter} readOnly />
+                <span className={`inline-flex items-center rounded-lg cursor-pointer h-8 !px-[0] ${
+                  activeSubFilter === filter
+                    ? "bg-gray-900 text-white font-semibold"
+                    : "border border-[#E5E5E5] bg-white text-[#727171]"
+                }`}>
+                  <Link className="px-2.5 leading-8" href={`/rankings?tab=${activeMainTab}&filter=${filter}`}>
+                    <span className="relative grow">{filter}</span>
+                  </Link>
+                </span>
+              </label>
             ))}
           </div>
         </div>

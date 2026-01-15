@@ -4,28 +4,33 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { Search, ShoppingCart, X, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import LanguageSelector from "@/components/language-selector"
 import { cn } from "@/lib/utils"
 
 const tabs = [
   { name: "홈", href: "/" },
-  { name: "랭킹", href: "/rankings" },
-  { name: "어워드", href: "/awards" },
+  { name: "랭킹", href: "/rankings?english_name=trending&theme_id=5102" },
+  { name: "어워드", href: "/awards/home" },
 ]
 
 // 히스테리시스 임계값: 위로 스크롤할 때와 아래로 스크롤할 때 다른 값 적용
 const SCROLL_THRESHOLD_DOWN = 80 // 아래로 스크롤 시 compact로 전환
 const SCROLL_THRESHOLD_UP = 30 // 위로 스크롤 시 expanded로 전환
 
-interface StickyHeaderProps {
-  activeTab?: string
-}
-
-export default function StickyHeader({ activeTab = "홈" }: StickyHeaderProps) {
+export default function StickyHeader() {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isBannerVisible, setIsBannerVisible] = useState(true)
   const lastScrollY = useRef(0)
   const ticking = useRef(false)
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/"
+    }
+    return pathname.startsWith(href.split("?")[0])
+  }
 
   const updateScrollState = useCallback(() => {
     const currentScrollY = window.scrollY
@@ -143,8 +148,8 @@ export default function StickyHeader({ activeTab = "홈" }: StickyHeaderProps) {
       {/* Navigation Tabs - animated visibility */}
       <nav
         className={cn(
-          "flex border-b border-[#e5e5e5] bg-white transition-all duration-300 ease-in-out overflow-hidden",
-          isScrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-12 opacity-100"
+          "px-5 py-[13px] flex items-center gap-6 border-b border-[#E8E8E8] bg-white transition-all duration-300 ease-in-out overflow-hidden",
+          isScrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-[60px] opacity-100"
         )}
       >
         {tabs.map((tab) => (
@@ -152,12 +157,11 @@ export default function StickyHeader({ activeTab = "홈" }: StickyHeaderProps) {
             key={tab.name}
             href={tab.href}
             prefetch={false}
-            className={`flex-1 py-3 text-sm font-bold relative text-center ${
-              activeTab === tab.name ? "text-[#1a1a1a]" : "text-[#727171]"
+            className={`text-base ${
+              isActive(tab.href) ? "text-[#1a1a1a] font-semibold" : "text-[#727171]"
             }`}
           >
             {tab.name}
-            {activeTab === tab.name && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#f39800]" />}
           </Link>
         ))}
       </nav>

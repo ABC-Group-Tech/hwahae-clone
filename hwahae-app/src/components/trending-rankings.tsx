@@ -6,9 +6,9 @@ import Link from "next/link"
 import Image from "next/image"
 
 const products = [
-  { id: 1, brand: "토리든", name: "다이브인 저분자 히알루론산 세럼", rating: 4.72, reviews: 89234, change: 5, image: "https://img.hwahae.co.kr/products/1984011/1984011_20231114110247.jpg" },
-  { id: 2, brand: "웰라쥬", name: "리얼 히알루로닉 수딩 크림", rating: 4.65, reviews: 45678, change: 12, image: "https://img.hwahae.co.kr/products/2177164/2177164_20260113144525.jpg" },
-  { id: 3, brand: "YBK", name: "포어 풀 커버 데일리 썬스크린", rating: 4.58, reviews: 32145, change: -3, image: "https://img.hwahae.co.kr/products/1999410/1999410_20220801000000.jpg" },
+  { id: 1, brand: "토리든", name: "다이브인 저분자 히알루론산 세럼", rating: 4.72, reviews: 89234, change: 5, image: "" },
+  { id: 2, brand: "웰라쥬", name: "리얼 히알루로닉 수딩 크림", rating: 4.65, reviews: 45678, change: 12, image: "" },
+  { id: 3, brand: "YBK", name: "포어 풀 커버 데일리 썬스크린", rating: 4.58, reviews: 32145, change: -3, image: "" },
 ]
 
 export default function TrendingRankings() {

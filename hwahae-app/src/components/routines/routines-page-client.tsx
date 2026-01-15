@@ -48,7 +48,7 @@ const curators = [
     followers: 3456,
     views: 12890,
     verified: true,
-    bgColor: "bg-gradient-to-br from-green-200 to-teal-200",
+    bgColor: "bg-gradient-to-br from-green-200 to-text-[#f39800]",
   },
   {
     id: 5,

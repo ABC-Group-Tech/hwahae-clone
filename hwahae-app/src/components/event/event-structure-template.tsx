@@ -10,7 +10,7 @@ import SideFloatingBanner from "@/components/side-floating-banner"
 import EventHeader from "@/components/event-header"
 
 /**
- * 화해 스타일 이벤트 페이지 템플릿
+ * ABC Pharm 스타일 이벤트 페이지 템플릿
  *
  * 구조:
  * - EventHeader (Sticky top-[0])
@@ -29,9 +29,9 @@ const brandFilters = ["토리든", "에스네이처", "아누아", "에스트라
 const sampleProducts = Array.from({ length: 8 }, (_, i) => ({
   id: 73732 + i,
   thumbnail: `https://via.placeholder.com/300x300/FF6B6B/FFFFFF?text=Product+${i + 1}`,
-  badge: i % 3 === 0 ? "only화해" : undefined,
+  badge: i % 3 === 0 ? "onlyABC Pharm" : undefined,
   brand: ["닥터오라클", "이니스프리", "코스알엑스", "이즈앤트리", "프리메이", "비플레인", "아누아", "메디힐"][i],
-  name: `[only화해] 레티놀 앰플 30ml 기획 세트 (앰플30ml+크림10mlx2EA+팩 5매) ${i + 1}`,
+  name: `[onlyABC Pharm] 레티놀 앰플 30ml 기획 세트 (앰플30ml+크림10mlx2EA+팩 5매) ${i + 1}`,
   rating: 4.5 + (i * 0.1),
   reviewCount: 1000 + (i * 500),
   originalPrice: 30000 + (i * 5000),
@@ -158,7 +158,7 @@ export default function EventStructureTemplate() {
 
                     {/* 상품 정보 */}
                     <div className="mt-2">
-                      {/* only화해 뱃지 */}
+                      {/* onlyABC Pharm 뱃지 */}
                       {product.badge && (
                         <div className="flex flex-wrap mt-1">
                           <span className="inline-block rounded-full font-bold h-4 px-1 text-[11px] leading-4 bg-red-400 text-white">
