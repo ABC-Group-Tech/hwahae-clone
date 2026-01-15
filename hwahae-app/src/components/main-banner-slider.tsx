@@ -60,12 +60,12 @@ export default function MainBannerSlider() {
     setTranslateX(0)
   }, [isDragging, translateX])
 
-  const handleBannerClick = useCallback((bannerId: number) => {
+  const handleBannerClick = useCallback(() => {
     if (hasDragged) {
       setHasDragged(false)
       return
     }
-    window.location.href = `/event/${bannerId}`
+    window.location.href = `/event/3`
   }, [hasDragged])
 
   // Mouse events
@@ -111,7 +111,7 @@ export default function MainBannerSlider() {
             <div
               key={banner.id}
               className="min-w-full aspect-[3/2] bg-gray-200 flex items-center justify-center relative"
-              onClick={() => handleBannerClick(banner.id)}
+              onClick={handleBannerClick}
             >
               {banner.image ? (
                 <Image
