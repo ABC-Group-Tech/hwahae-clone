@@ -1,0 +1,148 @@
+Build the PRODUCT DETAIL page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# PRODUCT DETAIL PAGE (제품상세)
+
+## Layout
+
+### Sticky Header
+- Back button (←)
+- Share button (Share2 icon)
+- Cart button (ShoppingCart icon)
+- Background: white, subtle shadow on scroll
+
+### Product Image Gallery
+- Main image: large placeholder (full width, aspect-ratio: 1/1)
+- Thumbnail strip below (horizontal scroll, 5 thumbnails)
+- Image indicator: "1/5" format (bottom right)
+- Border-radius: 0 for main image
+
+### Product Info Section
+- Brand name (Korean) + arrow link to brand page
+  - Gray (#727171), 14px
+- Product name (Korean)
+  - Black, 18px, bold, 2 lines max
+- Star rating section:
+  - Large star icon (⭐ yellow)
+  - Rating number (e.g., "4.60")
+  - Review count link (e.g., "(73,977개 리뷰)")
+- Price section:
+  - Original price: strikethrough, gray, 14px (if discounted)
+  - Discount percentage: orange (#f39800), bold
+  - Sale price: black, 20px, bold
+  - Format: "50% 35,000원"
+- Badges:
+  - "only ABCPharm" (orange border)
+  - "무료배송" (gray border)
+
+### Action Buttons Row
+- "찜하기" (Wishlist) button
+  - Heart icon + text
+  - Border style
+- "구매하기" (Purchase) button
+  - Orange (#f39800) background
+  - White text
+
+### Product Tabs
+- Tab navigation: "제품정보", "성분", "리뷰", "Q&A"
+- Active tab: orange (#f39800) underline (2px)
+- Inactive tab: gray text
+
+### Product Info Tab Content (제품정보)
+- Product description text
+- Ingredient Safety Analysis Section:
+  - Header (Korean): "성분 안전도"
+  - Safety grade badges (color-coded circles):
+    - Green: 1-2 (안전)
+    - Yellow: 3-6 (보통)
+    - Red: 7-10 (주의)
+  - "EWG 등급" display
+- How to Use Section:
+  - Header (Korean): "사용법"
+  - Step-by-step instructions
+- Cautions Section:
+  - Header (Korean): "주의사항"
+  - Warning text
+
+### Ingredients Tab Content (성분)
+- Search input: "성분 검색"
+- Full ingredient list
+- Each ingredient row:
+  - Ingredient name (Korean/English)
+  - Safety grade indicator (colored dot)
+  - EWG grade number
+- Expandable details on tap
+
+### Reviews Tab Content (리뷰)
+- Review Summary:
+  - Average rating (large, e.g., "4.6")
+  - Total review count
+  - Rating distribution bar chart (5-4-3-2-1 stars)
+- Filter buttons:
+  - Skin type: "건성", "지성", "복합성", "민감성"
+  - Photo reviews: "포토 리뷰만"
+- Sort options: "최신순", "추천순", "평점 높은순", "평점 낮은순"
+- Individual Review Cards:
+  - User profile: circle placeholder + username
+  - User skin type tags (e.g., "복합성", "민감성")
+  - Star rating (5 stars)
+  - Review text (expandable)
+  - Photo thumbnails: placeholder grid
+  - Helpful count: "도움이 돼요 (123)"
+  - Date: "2024.01.15"
+
+### Q&A Tab Content (Q&A)
+- Question list
+- Each question:
+  - Q badge + question text
+  - Answer count
+  - Date
+- "질문하기" button (floating or fixed)
+
+### Sticky Bottom Bar
+- Left: Price display (sale price prominent)
+- Center: "장바구니" button (border style)
+- Right: "바로구매" button (orange background)
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Sample Product:
+- Brand: 토리든
+- Name: 다이브인 저분자 히알루론산 세럼 50ml
+- Original Price: 28,000원
+- Sale Price: 19,600원 (30% off)
+- Rating: 4.72
+- Review Count: 89,234
+
+### Sample Reviews:
+- "촉촉하고 흡수가 빨라요! 민감한 피부에도 자극 없이 사용할 수 있어요."
+- "가성비 최고! 이 가격에 이 퀄리티는 정말 좋습니다."
+
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.

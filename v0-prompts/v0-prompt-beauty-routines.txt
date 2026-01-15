@@ -1,0 +1,152 @@
+Build the BEAUTY ROUTINES and CURATOR pages for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# BEAUTY ROUTINES PAGE (뷰티 루틴)
+
+## Layout
+
+### Header
+- Back button (←)
+- Title (Korean): "뷰티 루틴"
+- Search or filter icon (optional)
+
+### Category Filter Tabs
+- Horizontal scrollable
+- Tabs (Korean): "전체", "스킨케어", "메이크업", "클렌징", "바디케어"
+- Active tab: orange (#f39800) background + white text
+- Pill shape (border-radius: 16px)
+
+### Skin Type Filter
+- Secondary filter row
+- Tags (Korean): "건성", "지성", "복합성", "민감성", "여드름"
+- Active: orange border + orange text
+- Inactive: gray border + gray text
+
+### Curator Cards Grid
+- 2 column grid layout
+- Gap: 12px
+
+#### Curator Card
+- Background: gradient placeholder or pastel color
+- Aspect ratio: 3:4 (portrait)
+- Border-radius: 12px
+- Content overlay (bottom):
+  - Curator profile image: circle placeholder (40px)
+  - Curator name (Korean) + verified badge (✓)
+  - Skin type tags (small pills)
+- View count: eye icon + number
+- Hover: subtle scale or shadow effect
+
+### Load More
+- "더보기" button
+- Or infinite scroll
+
+---
+
+# CURATOR PROFILE PAGE (큐레이터)
+
+## Layout
+
+### Header
+- Back button (←)
+- Share button (Share2 icon)
+- More options button (⋮)
+
+### Curator Header Section
+- Profile image: large circle placeholder (80px)
+- Name (Korean) + verified badge (✓ blue checkmark)
+- Skin info tags:
+  - Skin type (e.g., "복합성")
+  - Skin concerns (e.g., "민감성", "미백")
+- Stats row:
+  - Follower count: "[N]명 팔로워"
+- Action button:
+  - "팔로우" (Follow) - orange border, orange text
+  - "팔로잉" (Following) - orange background, white text (after follow)
+
+### Curator Stats Section
+- Horizontal stats display
+- Stats (Korean):
+  - "리뷰": [N]개
+  - "제품": [N]개
+  - "평균 별점": [N]점
+
+### Collections Section
+- Header (Korean): "컬렉션" + count
+- Horizontal scrollable cards
+- Collection card:
+  - Cover image: placeholder (120x120px, rounded)
+  - Collection title (Korean)
+  - Product count: "[N]개 제품"
+- "전체보기 >" link
+
+### Reviews Section
+- Header (Korean): "리뷰" + count
+- Tab filters: "전체", "포토리뷰"
+- Vertical list of review cards
+
+#### Review Card
+- Product thumbnail: placeholder (60x60px)
+- Product info:
+  - Brand name (gray)
+  - Product name (black)
+- Star rating (5 stars display)
+- Review excerpt (2 lines, expandable)
+- Date: "2024.01.15"
+- Helpful count: "도움이 돼요 (123)"
+
+### Routine Posts Section
+- Header (Korean): "루틴"
+- Grid of routine post cards
+- Card: Same as main page curator cards
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Sample Curators:
+1. Name: 뷰티마스터123
+   - Skin type: 복합성
+   - Concerns: 민감성, 모공
+   - Followers: 12,345
+   - Reviews: 234
+   - Collections: 5
+
+2. Name: 스킨케어러버
+   - Skin type: 건성
+   - Concerns: 보습, 주름
+   - Followers: 8,901
+   - Reviews: 156
+   - Collections: 3
+
+### Sample Collections:
+- "겨울철 보습 루틴" - 8개 제품
+- "민감성 피부 추천템" - 12개 제품
+- "아침 스킨케어" - 5개 제품
+
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.

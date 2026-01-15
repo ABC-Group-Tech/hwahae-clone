@@ -1,0 +1,128 @@
+Build the SEARCH page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# SEARCH PAGE (검색)
+
+## Layout
+
+### Search Header
+- Back button (←)
+- Search input:
+  - Full width
+  - Rounded (border-radius: 24px)
+  - Placeholder: "궁금한 제품을 검색해 보세요"
+  - Search icon (left)
+  - Clear button (X) inside input (right, appears when typing)
+  - Background: #F5F5F5
+
+### Default State (Before Search)
+
+#### Recent Searches Section
+- Header (Korean): "최근 검색어"
+- Right side: "전체 삭제" button (gray text)
+- List of recent search terms as tags/chips
+- Each tag has X button to delete individual item
+- Maximum 10 items
+
+#### Popular Searches Section
+- Header (Korean): "인기 검색어"
+- Update time: "00:00 기준"
+- Numbered list (1-10):
+  - Rank number (1-3: orange, 4-10: gray)
+  - Search term
+  - Trend indicator (▲ up, ▼ down, NEW badge)
+
+#### Real-time Purchase Rankings
+- Header (Korean): "실시간 구매 랭킹"
+- Arrow link to full list
+- Numbered product list (1-5 preview):
+  - Rank number
+  - Product image: placeholder (50x50px)
+  - Product name (Korean)
+  - Price (orange if on sale)
+
+### Search Results State (After Search)
+
+#### Results Header
+- Search query display
+- Results count: "[N]개의 검색 결과"
+
+#### Tab Filters
+- Tabs: "전체", "제품", "브랜드", "성분"
+- Active tab: orange underline
+- Each tab shows result count
+
+#### Sort Options
+- Dropdown or button group
+- Options (Korean): "관련순", "리뷰순", "평점순", "가격 낮은순", "가격 높은순"
+
+#### View Toggle
+- Grid view (2 columns)
+- List view (1 column)
+- Toggle buttons (grid/list icons)
+
+#### Product Results Grid
+- Product card:
+  - Product image: placeholder (square)
+  - Brand name (gray, small)
+  - Product name (black, 2 lines max)
+  - Rating (⭐ 4.60) + review count
+  - Price (with discount if applicable)
+
+#### Brand Results
+- Brand card:
+  - Brand logo: circle placeholder
+  - Brand name
+  - Product count: "[N]개 제품"
+  - Arrow to brand page
+
+#### No Results State
+- Icon: Search with X
+- Text (Korean): "검색 결과가 없습니다"
+- Subtext (Korean): "다른 검색어를 입력해 보세요"
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Popular Search Terms:
+1. 토리든 세럼
+2. 선크림
+3. 클렌징폼
+4. 아누아 패드
+5. 비타민C
+6. 시카크림
+7. 레티놀
+8. 토너패드
+9. 마스크팩
+10. 립밤
+
+### Recent Search Terms:
+히알루론산, 민감성 토너, 여드름 세럼, 선크림 추천
+
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.

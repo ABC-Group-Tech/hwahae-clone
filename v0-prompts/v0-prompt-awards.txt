@@ -1,0 +1,123 @@
+Build the AWARDS pages for a cosmetics review platform called "ABCPharm".
+This includes: Awards Home, Hall of Fame, Efficacy Awards.
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# AWARDS HOME PAGE (어워드 홈)
+
+## Layout
+- Same header as Home page
+- Navigation tabs with "어워드" active
+
+### Awards Header Section
+- Year selector buttons: "2025", "2024", "2023", "2022"
+- Active year: orange (#f39800) background + white text
+- Inactive year: gray border, gray text
+- Title (Korean): "ABCPharm 어워드 [년도]"
+
+### Award Category Cards
+- Grid layout (2 columns)
+- Card structure:
+  - Background: pastel color gradient or image placeholder
+  - Award icon/badge (Lucide icon)
+  - Title (Korean)
+  - Subtitle (Korean): Award description
+  - Arrow icon (→) for navigation
+  - Rounded corners (border-radius: 12px)
+
+### Award Categories (Korean):
+- "명예의 전당" - Icon: Trophy
+- "뷰티 어워드" - Icon: Award
+- "하반기 베스트 신제품" - Icon: Star
+- "하반기 효능/효과" - Icon: Sparkles
+- "하반기 비건" - Icon: Leaf
+- "하반기 넥스트 뷰티" - Icon: TrendingUp
+
+---
+
+# HALL OF FAME PAGE (명예의 전당)
+
+## Layout
+- Back button (←) + Title header: "명예의 전당"
+- Main award badge/banner at top (placeholder)
+
+### Category Navigation
+- Horizontal scrollable category tabs
+- Categories (Korean): "스킨케어", "베이스메이크업", "색조메이크업", "클렌징", "마스크/팩", "바디케어", "선케어", "헤어"
+- Active category: orange (#f39800) underline (2px)
+- Inactive category: gray text
+
+### Winners List by Category
+- Section header with category name
+- Horizontal scrollable product cards
+- Product card (Award version):
+  - Award badge (🥇 🥈 🥉 gold/silver/bronze)
+  - Product image: placeholder (100x100px)
+  - Brand name (gray, small)
+  - Product name (black, medium)
+  - "명예의 전당" badge (special gold background)
+  - Rating (⭐ 4.60) + review count
+
+---
+
+# EFFICACY AWARDS PAGE (효능/효과 어워드)
+
+## Layout
+- Back button + Title: "효능/효과 어워드"
+- Award period badge (Korean): "2024 하반기"
+
+### Skin Concern Tabs
+- Horizontal scrollable tabs
+- Tabs (Korean): "미백", "주름개선", "모공케어", "각질케어", "진정", "보습", "탄력", "트러블케어"
+- Active tab: orange (#f39800) pill shape (border-radius: 16px) + white text
+- Inactive tab: gray (#727171) text only
+
+### Product Rankings by Concern
+- Vertical list format
+- Product card:
+  - Rank badge (1, 2, 3...) with efficacy icon
+  - Product image: placeholder (70x70px)
+  - Brand name + Product name
+  - Efficacy highlight badge (e.g., "미백 1위")
+  - Rating + review count
+  - "only ABCPharm" badge if applicable
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Brands:
+토리든, 에스네이처, 아누아, 비플레인, 에스트라, 메디힐, 달바, 코스알엑스
+
+### Products:
+- 다이브인 저분자 히알루론산 세럼
+- 비타민 나이아신아마이드 세럼
+- 병풀 시카 진정 크림
+- 티트리 시카 수딩 토너
+
+### Ratings: 4.2 ~ 4.9 range
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.

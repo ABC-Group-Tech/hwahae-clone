@@ -1,0 +1,161 @@
+Build the CART page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# CART PAGE (장바구니)
+Note: This page requires authentication
+
+## Layout
+
+### Header
+- Logo: "ABCPharm" (clickable, links to home)
+- Simple header, no search bar
+
+### Info Banner
+- Background: cyan/light blue (#E0F7FA)
+- Icon: Info circle
+- Text (Korean): "장바구니에 담은 상품은 최대 30일간 저장돼요"
+- "30일" text emphasized (bold)
+
+### Cart Actions Bar
+- Left side:
+  - Checkbox (square)
+  - Text (Korean): "상품 전체 선택"
+- Right side:
+  - Button (Korean): "선택 삭제"
+  - Border style, gray text
+
+### Cart Items (Grouped by Seller)
+
+#### Seller Group Header
+- Text format (Korean): "[판매자명] 공식몰"
+- Example: "YBK 공식몰", "토리든 공식몰"
+- Background: light gray (#F9F9F9)
+
+#### Cart Item Card
+- Layout: Horizontal card
+- Left: Checkbox for selection
+- Center-left: Product image
+  - Placeholder (60x60px, rounded)
+  - "일시품절" badge overlay (if out of stock)
+    - Background: semi-transparent black
+    - White text
+- Center-right: Product info
+  - Product name (Korean, 2 lines max, ellipsis)
+  - Link to product page
+- Top-right: Delete button (X icon)
+- Bottom row:
+  - Quantity selector:
+    - Minus button [-]
+    - Number display
+    - Plus button [+]
+    - Border style, compact
+  - Price display:
+    - Discount percentage (orange, e.g., "50%")
+    - Price (black, bold, e.g., "35,000원")
+
+#### Per-Seller Summary
+- Two rows:
+  - "상품금액": price value or "0원" (if none selected)
+  - "배송비": "무료" or shipping amount
+- Light background
+- Right-aligned values
+
+### Final Payment Section
+- Header (Korean): "최종 결제 금액"
+- Summary card:
+  - Row: "총 상품 금액" — amount
+  - Row: "배송비" — "무료" or amount
+  - Divider line
+  - Row: "결제 예상 금액" — total (bold, larger font)
+- Background: white with border
+
+### Checkout Button
+- Full width button
+- Position: Bottom of content or sticky
+- States:
+  - Disabled (nothing selected):
+    - Background: gray (#CCCCCC)
+    - Text (Korean): "주문할 상품을 선택해주세요"
+  - Active (items selected):
+    - Background: orange (#f39800)
+    - Text (Korean): "[N]개 상품 주문하기"
+    - Example: "1개 상품 주문하기"
+
+### Footer
+- Same footer as other pages
+- Business info accordion
+- Links, social icons, copyright
+
+### Side Banner (Desktop Only)
+- Same floating banner as home page
+- QR code placeholder
+
+---
+
+## Empty Cart State
+
+### Layout
+- Centered content
+- Empty cart illustration: placeholder (150x150px)
+- Text (Korean): "장바구니가 비어있어요"
+- Subtext (Korean): "관심있는 상품을 담아보세요"
+- CTA Button:
+  - Text (Korean): "쇼핑하러 가기"
+  - Orange background (#f39800)
+  - Links to home or rankings
+
+---
+
+## INTERACTIONS
+
+- Checkbox: Toggle item selection (updates totals)
+- Quantity +/-: Update quantity (updates totals)
+- Delete X: Remove item from cart (with confirmation)
+- "선택 삭제": Remove all selected items
+- "상품 전체 선택": Toggle all checkboxes
+- Product name/image: Link to product detail page
+- Seller name: Link to seller page
+- Checkout button: Navigate to checkout page
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Sample Cart Items:
+1. Seller: YBK 공식몰
+   - Product: YBK포어 풀 커버 데일리 썬스크린 [SPF50+/PA++++]
+   - Status: 일시품절
+   - Price: 35,000원 (50% off)
+   - Quantity: 1
+
+2. Seller: 토리든 공식몰
+   - Product: 다이브인 저분자 히알루론산 세럼
+   - Price: 19,600원 (30% off)
+   - Quantity: 2
+
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.

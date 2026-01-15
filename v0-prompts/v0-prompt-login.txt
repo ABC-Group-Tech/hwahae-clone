@@ -1,0 +1,112 @@
+Build the LOGIN page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# LOGIN PAGE (로그인)
+
+## Layout
+
+### Header
+- Logo: "ABCPharm" text logo (clickable, links to home)
+  - Color: cyan/teal (#00CED1) or use brand primary
+- Help button (?) on top right
+
+### Main Content (Centered)
+
+#### Title Section
+- Main heading (Korean): "기초부터 이너뷰티까지"
+- Sub heading (Korean): "새로운 뷰티의 발견"
+- Font: Large, bold, centered
+
+#### Promotional Banner
+- Text (Korean): "⚡️ 3초만에 로그인하고 할인가로 구매하기"
+- "할인가로 구매하기" text underlined
+- Background: light gray or subtle border
+
+### Social Login Buttons
+
+#### Kakao Button (Primary)
+- Background: #FEE500 (Kakao Yellow)
+- Icon: Kakao talk bubble icon
+- Text (Korean): "카카오로 시작하기"
+- Full width
+- Border-radius: 8px
+- Height: 52px
+
+#### Secondary Social Buttons (Row)
+- Naver Button:
+  - Background: #03C75A (Naver Green)
+  - Icon: "N" letter
+  - Circle or square shape
+- Google Button:
+  - Background: white with border
+  - Icon: Google "G" logo (colored)
+  - Circle or square shape
+- Displayed side by side
+
+### Email Options
+- Two text links with separator:
+  - "이메일 회원가입" | "이메일 로그인"
+  - Gray text (#727171)
+  - Separator: vertical bar (|)
+  - Centered
+
+### Side Banner (Desktop Only, Left Side)
+- Logo icon (flower/star shape, cyan)
+- Text (Korean): "새로운 뷰티의 발견"
+- Subtext (Korean):
+  - "지금, ABCPharm 앱에서"
+  - "리뷰 확인부터 무료 체험 신청,"
+  - "포인트 혜택까지 받아보세요!"
+- QR code: placeholder (bg-gray-200, 100x100px)
+- Position: Fixed left, vertically centered
+
+---
+
+## States
+
+### Default State
+- Show all login options as described
+
+### Loading State
+- Button shows spinner while authenticating
+
+### Error State
+- Toast or inline message for login errors
+- Text (Korean): "로그인에 실패했습니다. 다시 시도해주세요."
+
+---
+
+## INTERACTIONS
+
+- Kakao button: Redirects to Kakao OAuth
+- Naver button: Redirects to Naver OAuth
+- Google button: Redirects to Google OAuth
+- "이메일 회원가입": Navigate to /auth/signup
+- "이메일 로그인": Navigate to /auth/signin/email
+- Logo click: Navigate to home (/)
+- Help button: Open help modal or navigate to FAQ
+
+Focus on layout and interactions. ALL visible text must be in Korean.

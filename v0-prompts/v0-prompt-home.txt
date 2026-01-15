@@ -1,0 +1,152 @@
+Build the HOME page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (gray box + text label)
+- Placeholder format: bg-gray-200 background with text like "Product Image", "Banner Image", etc.
+- ALL UI TEXT MUST BE IN KOREAN (한글) - see exact text in each section below
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# HOME PAGE (홈)
+
+## Section-by-Section Implementation
+
+### 1. App Download Banner (Sticky Top)
+- Height: 44px
+- Background: orange (#f39800)
+- Text (Korean): "ABCPharm 앱에서 더 편리하게" + arrow icon
+- Close button (X) on the right
+
+### 2. Header
+- Logo: "ABCPharm" text logo (orange #f39800)
+- Right icons: Language selector with "한국어" label, Cart icon (장바구니)
+- Search bar: rounded (border-radius: 24px), placeholder text: "궁금한 제품을 검색해 보세요"
+- Background: white with subtle bottom shadow
+
+### 3. Navigation Tabs
+- Tabs (Korean): "홈", "랭킹", "어워드"
+- Active tab: orange (#f39800) bottom border (2px)
+- Font: 14px, bold
+
+### 4. Main Banner Slider
+- Auto-sliding infinite carousel (3 second interval)
+- Rounded corners (border-radius: 12px)
+- Slide indicator at bottom (1/14 format)
+- Banner: placeholder (bg-gray-200, "Banner Image 1", "Banner Image 2", etc.)
+
+### 5. ABCPharm Awards Section
+- Header (Korean): "1,000만의 선택, ABCPharm 어워드" + right arrow
+- Horizontal scrollable list
+- Icon cards with Korean labels:
+  - "명예의 전당", "뷰티 어워드", "하반기 베스트 신제품", "하반기 효능/효과", "하반기 비건", "하반기 넥스트 뷰티"
+  - Lucide icon + text
+  - Rounded icon background (different pastel colors each)
+  - Card size: 72px x 90px
+
+### 6. Trending Rankings Section
+- Header (Korean): "[날짜] 급상승 랭킹" - "급상승" text in orange #f39800
+- Horizontal scrollable product cards
+- Product card structure:
+  - Rank badge (1-10, top left)
+  - Rank change indicator (🔺 red for up, 🔻 blue for down, with number)
+  - Product image: placeholder (bg-gray-200, square, border-radius: 8px)
+  - Brand name in Korean (gray #727171, 12px)
+  - Product name in Korean (black, 14px, 2 line limit with ellipsis)
+  - Star rating (⭐ yellow star + score) + review count in parentheses
+- Bottom indicator: 1/10
+
+### 7. Category Rankings Section
+- Header (Korean): "ABCPharm 고객들이 직접 선택한 랭킹" + arrow
+- Filter button (Korean): "카테고리 전체 ▼" (dropdown)
+- Vertical list layout
+- Product card:
+  - Left: Rank (1-9), rank change
+  - Center: Thumbnail placeholder (bg-gray-200, 60x60px)
+  - Right: Brand + Product name (Korean), rating, review count
+- Link (Korean): "카테고리 전체보기 >"
+
+### 8. Skin Type Rankings Section
+- Header (Korean): "내 피부에 꼭 맞는 제품 랭킹"
+- Tab filters (Korean): "건성", "지성", "중성", "복합성", "민감성", "여드름", "아토피"
+- Active tab: orange (#f39800) background + white text, border-radius: 16px
+- Inactive tab: gray (#727171) text
+- Product list: same format as Category Rankings
+- Link (Korean): "[탭이름] 전체보기 >"
+
+### 9. Age Group Recommendations Section
+- Header (Korean): "나이대별 추천"
+- Tab filters (Korean): "10대", "20대", "30대", "40대 이상"
+- Product list: same format
+- Link (Korean): "[탭이름] 전체보기 >"
+
+### 10. Trending Brands Section
+- Header (Korean): "요즘 뜨는 브랜드"
+- Brand grouping:
+  - Brand rank (1, 2, 3)
+  - Brand logo: placeholder (circle, bg-gray-200)
+  - Brand name (Korean)
+  - Top 3 products from brand (horizontal scroll, placeholder images)
+- Link (Korean): "브랜드 전체보기 >"
+
+### 11. Beauty Routine Section
+- Header (Korean): "제품 더 잘 쓰는 루틴"
+- Horizontal scrollable cards
+- Card structure:
+  - Background: placeholder (bg-gray-300 gradient)
+  - Curator name (Korean) + verified badge (Lucide icon)
+  - Profile image: placeholder (circle)
+  - Skin type tags (Korean): "복합성", "민감성", "미백" etc.
+- Link (Korean): "뷰티 루틴 더보기 >"
+
+### 12. Footer
+- Accordion header (Korean): "사업자 정보"
+- Links (Korean): "사업자정보확인", "이용약관", "개인정보 처리방침", "1:1 문의", "ABCPharm 비즈니스", "광고/제휴문의"
+- Social icons: YouTube, Instagram (Lucide icons)
+- Copyright: "© ABCPharm Inc. All Rights Reserved."
+- Button (Korean): "로그인"
+
+### 13. Side Floating Banner (Left, Desktop only)
+- Text (Korean): "새로운 뷰티의 발견"
+- Subtext (Korean): "지금, ABCPharm 앱에서"
+- QR code: placeholder (bg-gray-200)
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Brands (Korean):
+토리든, 에스네이처, 아누아, 비플레인, 에스트라, 메디힐, 린제이, 스킨푸드, 라운드랩, 웰라쥬
+
+### Products (Korean):
+- 다이브인 저분자 히알루론산 세럼
+- 아쿠아 오아시스 토너
+- 아토베리어365 크림
+- 녹두 약산성 클렌징폼
+- PDRN 히알루론산 캡슐 100 세럼
+- 마데카소사이드 에센셜 마스크
+- 1025 독도 토너
+- 캐롯 카로틴 카밍 워터 패드
+
+### Ratings: 4.2 ~ 4.9 range
+### Review counts: 1,000 ~ 90,000 range (format: "4.60 (73,977)")
+### Images: All placeholders (do NOT use actual image URLs)
+
+Focus on layout and interactions. Keep all images as placeholders. ALL visible text must be in Korean.

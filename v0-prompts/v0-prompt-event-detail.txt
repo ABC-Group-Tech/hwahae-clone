@@ -1,0 +1,145 @@
+Build the EVENT DETAIL page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# EVENT DETAIL PAGE (이벤트 상세)
+
+## Layout
+
+### Header
+- Back button (←)
+- Share button (Share2 icon)
+- Background: transparent or white
+
+### Event Banner Section
+- Large banner image: placeholder (full width, aspect-ratio: 16:9 or 4:3)
+- May contain multiple banners (carousel)
+- Rounded corners: 0 or 12px
+- Promotional graphics placeholder
+
+### Event Info Section
+- Event period badge:
+  - Icon: Calendar
+  - Text (Korean): "[시작일] ~ [종료일]"
+  - Format: "2024.01.15 ~ 2024.02.15"
+- Event status badge (if applicable):
+  - "진행중" (green)
+  - "종료임박" (orange)
+  - "종료" (gray)
+- Event title (Korean): Large, bold
+- Event description: Markdown or plain text
+
+### Event Benefits Section (if applicable)
+- Header (Korean): "이벤트 혜택"
+- Benefit cards:
+  - Icon + text
+  - Examples: "무료배송", "추가할인", "사은품 증정"
+
+### Event Products Section
+- Header (Korean): "이벤트 상품"
+- Product count: "[N]개 상품"
+
+#### Product Grid (2 columns)
+- Product card:
+  - Event badge (top-left):
+    - Sale percentage: "50% OFF" (red/orange background)
+    - Special label: "특가", "한정수량"
+  - Product image: placeholder (square, rounded)
+  - Brand name (gray, small)
+  - Product name (black, 2 lines max)
+  - Price section:
+    - Original price: strikethrough, gray
+    - Event price: orange (#f39800), bold
+  - "품절" badge (if sold out):
+    - Gray overlay
+    - Text: "품절"
+  - Add to cart quick button (optional)
+
+### Multiple Event Sections
+- If event has multiple product groups:
+  - Section headers with descriptions
+  - Collapsible sections
+
+### Event Terms Section
+- Collapsible/Accordion
+- Header (Korean): "유의사항" or "이벤트 안내"
+- Expand icon (ChevronDown)
+- Content:
+  - Numbered or bulleted list
+  - Terms and conditions text
+  - Refund/exchange policy
+  - Event restrictions
+
+### Related Events Section (optional)
+- Header (Korean): "다른 이벤트"
+- Horizontal scroll of event cards
+- Event card:
+  - Thumbnail placeholder
+  - Event title
+  - Period
+
+### Footer
+- Same as other pages
+
+---
+
+## INTERACTIONS
+
+- Banner carousel: Swipe or auto-play
+- Product card: Navigate to product detail
+- Add to cart: Add product to cart (with quantity selector)
+- "품절" items: Disabled, can't add to cart
+- Terms accordion: Expand/collapse
+- Share button: Share event link
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Sample Event:
+- Title: 겨울맞이 보습템 대전
+- Period: 2024.01.15 ~ 2024.02.15
+- Description: 건조한 겨울, 촉촉한 피부를 위한 특별 할인 이벤트!
+
+### Sample Products:
+1. Brand: 토리든
+   - Name: 다이브인 저분자 히알루론산 세럼
+   - Original: 28,000원
+   - Event: 19,600원 (30%)
+
+2. Brand: 에스트라
+   - Name: 아토베리어365 크림
+   - Original: 32,000원
+   - Event: 22,400원 (30%)
+   - Status: 품절
+
+### Event Terms (Korean):
+- 본 이벤트는 재고 소진 시 조기 종료될 수 있습니다.
+- 할인 금액은 다른 쿠폰과 중복 적용되지 않습니다.
+- 이벤트 상품은 교환/환불이 제한될 수 있습니다.
+
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.

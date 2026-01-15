@@ -1,0 +1,95 @@
+Build the RANKINGS page for a cosmetics review platform called "ABCPharm".
+
+## Important Rules
+- Do NOT generate AI images except for the logo
+- Use placeholder boxes for all image areas (bg-gray-200 + text label)
+- ALL UI TEXT MUST BE IN KOREAN (한글)
+
+## Tech Stack
+- Next.js 14 App Router
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Lucide React icons
+
+## Brand Colors
+- Primary color: #f39800 (orange)
+- Secondary text: #727171 (gray)
+- Background: #FFFFFF (white)
+- Border: #E5E5E5
+
+## Overall Layout
+- Mobile-first design (max-width: 480px, centered)
+- Font: Pretendard or system-ui
+
+---
+
+# RANKINGS PAGE (랭킹)
+
+## Layout
+- Same header as Home page (Logo, search bar, cart icon)
+- Navigation tabs with "랭킹" active (orange bottom border)
+
+### Rankings Tab Navigation
+- Horizontal scrollable tab bar
+- Tabs (Korean): "급상승", "카테고리별", "피부별", "연령대별", "브랜드"
+- Active tab: orange (#f39800) background with white text, pill shape (border-radius: 20px)
+- Inactive tab: gray border (#E5E5E5), gray text (#727171)
+
+### Sub-tabs (depends on main tab selection)
+
+For "급상승":
+- Filter buttons: "실시간", "일간", "주간"
+- Active filter: orange background + white text
+
+For "카테고리별":
+- Categories: "전체", "스킨케어", "클렌징", "마스크/팩", "선케어", "베이스", "색조", "네일", "헤어", "바디", "향수"
+- Dropdown or horizontal scroll
+
+For "피부별":
+- Types: "건성", "지성", "중성", "복합성", "민감성"
+- Pill-shaped buttons
+
+For "연령대별":
+- Age groups: "10대", "20대", "30대", "40대 이상"
+
+For "브랜드":
+- Brand list with search functionality
+
+### Ranking List
+- Vertical scrollable list
+- Product card structure:
+  - Rank number (large, bold, 24px)
+  - Rank change indicator:
+    - ▲ red (#FF4444) for up + number
+    - ▼ blue (#4444FF) for down + number
+    - - gray for no change
+  - Product image: placeholder (80x80px, border-radius: 8px)
+  - Brand name (gray #727171, 12px)
+  - Product name (black, 14px, 2 lines max with ellipsis)
+  - Star rating (⭐ + "4.60") + review count "(73,977)"
+  - "only ABCPharm" badge if applicable (orange #f39800 border, small text)
+
+### Bottom Load More
+- "더보기" button or infinite scroll
+
+---
+
+## DUMMY DATA (ALL IN KOREAN)
+
+### Brands:
+토리든, 에스네이처, 아누아, 비플레인, 에스트라, 메디힐, 린제이, 스킨푸드, 라운드랩, 웰라쥬
+
+### Products:
+- 다이브인 저분자 히알루론산 세럼
+- 아쿠아 오아시스 토너
+- 아토베리어365 크림
+- 녹두 약산성 클렌징폼
+- 1025 독도 토너
+- 캐롯 카로틴 카밍 워터 패드
+
+### Ratings: 4.2 ~ 4.9 range
+### Review counts: 1,000 ~ 90,000 range
+### Images: All placeholders
+
+Focus on layout and interactions. ALL visible text must be in Korean.
