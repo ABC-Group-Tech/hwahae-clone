@@ -277,7 +277,7 @@ export default function CategoryRankings() {
               checked={isDropdownOpen}
               onChange={() => setIsDropdownOpen(!isDropdownOpen)}
             />
-            <span className="inline-flex items-center rounded-lg cursor-pointer bg-gray-850 text-white text-base font-semibold h-8 pl-2.5 pr-1.5">
+            <span className="inline-flex items-center rounded-lg cursor-pointer bg-gray-900 text-white text-base font-semibold h-8 pl-2.5 pr-1.5">
               <h3>{selectedCategory === "전체" ? "카테고리 전체" : selectedCategory}</h3>
               <ChevronDown className={`w-6 h-6 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
             </span>
