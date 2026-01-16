@@ -165,6 +165,8 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
             willChange: "transform",
           }}
         >
+          {/* 위로 당길 때 아래 빈 공간 방지용 흰색 영역 */}
+          <div className="absolute left-0 right-0 -bottom-[100px] h-[100px] bg-white" />
           {/* Drag Handle Area - 더 넓은 터치 영역 */}
           <div
             className="flex flex-col items-center justify-center cursor-grab active:cursor-grabbing select-none"
