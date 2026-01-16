@@ -65,7 +65,7 @@ export default function MainBannerSlider() {
       setHasDragged(false)
       return
     }
-    window.location.href = `/events/3`
+    window.location.href = `/events/sample`
   }, [hasDragged])
 
   // Mouse events
