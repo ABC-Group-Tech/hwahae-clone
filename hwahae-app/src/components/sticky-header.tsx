@@ -14,15 +14,13 @@ const tabs = [
   { name: "어워드", href: "/awards" },
 ]
 
-// 히스테리시스 임계값: 위로 스크롤할 때와 아래로 스크롤할 때 다른 값 적용
-const SCROLL_THRESHOLD_DOWN = 80 // 아래로 스크롤 시 compact로 전환
-const SCROLL_THRESHOLD_UP = 30 // 위로 스크롤 시 expanded로 전환
+// 스크롤 임계값: 이 값을 넘으면 compact 모드로 전환
+const SCROLL_THRESHOLD = 50
 
 export default function StickyHeader() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isBannerVisible, setIsBannerVisible] = useState(true)
-  const lastScrollY = useRef(0)
   const ticking = useRef(false)
 
   const isActive = (href: string) => {
@@ -34,21 +32,10 @@ export default function StickyHeader() {
 
   const updateScrollState = useCallback(() => {
     const currentScrollY = window.scrollY
-    const scrollingDown = currentScrollY > lastScrollY.current
 
-    if (scrollingDown) {
-      // 아래로 스크롤: 임계값 이상이면 compact 모드
-      if (currentScrollY > SCROLL_THRESHOLD_DOWN) {
-        setIsScrolled(true)
-      }
-    } else {
-      // 위로 스크롤: 임계값 이하면 expanded 모드
-      if (currentScrollY < SCROLL_THRESHOLD_UP) {
-        setIsScrolled(false)
-      }
-    }
+    // 단순한 임계값 기반: 50px 넘으면 compact, 이하면 expanded
+    setIsScrolled(currentScrollY > SCROLL_THRESHOLD)
 
-    lastScrollY.current = currentScrollY
     ticking.current = false
   }, [])
 
