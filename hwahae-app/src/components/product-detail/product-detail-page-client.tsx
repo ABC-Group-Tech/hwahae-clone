@@ -1,12 +1,16 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import ProductDetailHeader from "@/components/product-detail-header"
 import Footer from "@/components/footer"
 import ScrollToTopButton from "@/components/scroll-to-top-button"
+import BottomSheet from "@/components/ui/bottom-sheet"
 
 export default function ProductDetailPageClient() {
+  const [isRankingSheetOpen, setIsRankingSheetOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
       <div className="max-w-[600px] mx-auto bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]">
@@ -89,7 +93,11 @@ export default function ProductDetailPageClient() {
               </div>
               <div className="flex mt-4">
                 <span className="text-sm flex-shrink-0 w-[60px] text-[#727171]">랭킹</span>
-                <button type="button" className="flex flex-1 justify-between items-start">
+                <button
+                  type="button"
+                  className="flex flex-1 justify-between items-start"
+                  onClick={() => setIsRankingSheetOpen(true)}
+                >
                   <span className="text-sm text-[#1a1a1a] text-left">크림 ・ 수분 7위</span>
                   <ChevronRight className="flex-shrink-0 ml-4 w-5 h-5 text-[#727171]" />
                 </button>
@@ -782,6 +790,21 @@ export default function ProductDetailPageClient() {
             </button>
           </div>
         </div>
+
+        {/* 랭킹/수상 정보 바텀시트 */}
+        <BottomSheet isOpen={isRankingSheetOpen} onClose={() => setIsRankingSheetOpen(false)} title="랭킹/수상 정보">
+          <div className="flex">
+            <span className="text-sm flex-shrink-0 w-[60px] text-[#727171]">랭킹</span>
+            <div className="ml-4" role="list">
+              <span className="text-sm block mt-3 first:mt-0 text-[#1a1a1a]" role="listitem">
+                크림 ・ 수분 7위
+              </span>
+              <span className="text-sm block mt-3 first:mt-0 text-[#1a1a1a]" role="listitem">
+                크림 16위
+              </span>
+            </div>
+          </div>
+        </BottomSheet>
       </div>
     </div>
   )
