@@ -13,6 +13,8 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
   const [isDragging, setIsDragging] = useState(false)
   const [dragY, setDragY] = useState(0)
   const [isClosing, setIsClosing] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
   const startY = useRef(0)
   const lastY = useRef(0)
   const startTime = useRef(0)
@@ -20,11 +22,18 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
   const velocity = useRef(0)
   const sheetRef = useRef<HTMLDivElement>(null)
 
+  // 열림/닫힘 처리
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      // 열기: 먼저 visible 상태로 만들고, 다음 프레임에서 애니메이션 시작
+      setIsVisible(true)
       setIsClosing(false)
       setDragY(0)
+      document.body.style.overflow = "hidden"
+      // 다음 프레임에서 애니메이션 시작
+      requestAnimationFrame(() => {
+        setIsAnimating(true)
+      })
     } else {
       document.body.style.overflow = "unset"
     }
@@ -33,16 +42,25 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
     }
   }, [isOpen])
 
+  // 닫힘 애니메이션 핸들러
+  const handleClose = useCallback(() => {
+    setIsClosing(true)
+    setIsAnimating(false)
+    setTimeout(() => {
+      setIsVisible(false)
+      setIsClosing(false)
+      onClose()
+    }, 300) // 애니메이션 시간
+  }, [onClose])
+
   // Rubber band 효과 - 위로 드래그할 때 저항
   const applyRubberBand = (deltaY: number): number => {
     if (deltaY < 0) {
-      // 위로 드래그: 강한 저항 (iOS 스타일 rubber band)
       const resistance = 0.4
       const maxStretch = 50
       const stretch = Math.abs(deltaY) * resistance
       return -Math.min(stretch, maxStretch)
     }
-    // 아래로 드래그: 1:1 반응
     return deltaY
   }
 
@@ -62,17 +80,14 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
     const deltaTime = now - lastTime.current
     const deltaY = clientY - startY.current
 
-    // 속도 계산 (최근 움직임 기준)
     if (deltaTime > 0) {
       const instantVelocity = (clientY - lastY.current) / deltaTime
-      // 이동 평균으로 부드러운 속도 계산
       velocity.current = velocity.current * 0.5 + instantVelocity * 0.5
     }
 
     lastY.current = clientY
     lastTime.current = now
 
-    // Rubber band 효과 적용
     const transformedY = applyRubberBand(deltaY)
     setDragY(transformedY)
   }, [isDragging])
@@ -82,23 +97,16 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
 
     setIsDragging(false)
 
-    // 닫기 조건
-    // 1. 50px 이상 아래로 드래그
-    // 2. 아래 방향 속도가 0.3 px/ms 이상
     const shouldClose = dragY > 50 || (dragY > 20 && velocity.current > 0.3)
 
     if (shouldClose) {
-      setIsClosing(true)
-      setTimeout(() => {
-        onClose()
-      }, 250)
+      handleClose()
     } else {
-      // 부드럽게 원위치로
       setDragY(0)
     }
-  }, [isDragging, dragY, onClose])
+  }, [isDragging, dragY, handleClose])
 
-  // 전역 마우스 이벤트 (핸들 밖에서도 드래그 지속)
+  // 전역 마우스 이벤트
   useEffect(() => {
     if (!isDragging) return
 
@@ -131,21 +139,33 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
     }
   }, [isDragging, handleDragMove, handleDragEnd])
 
-  if (!isOpen) return null
+  // 렌더링하지 않음
+  if (!isVisible) return null
 
-  // 드래그 거리에 따른 오버레이 투명도 계산
-  const overlayOpacity = isClosing ? 0 : Math.max(0, 1 - dragY / 300)
+  // 오버레이 투명도 계산
+  const overlayOpacity = isClosing ? 0 : isAnimating ? Math.max(0, 1 - dragY / 300) : 0
+
+  // 바텀시트 위치 계산
+  const getTransform = () => {
+    if (isClosing) {
+      return "translate3d(0, 100%, 0)"
+    }
+    if (!isAnimating) {
+      return "translate3d(0, 100%, 0)"
+    }
+    return `translate3d(0, ${dragY}px, 0)`
+  }
 
   return (
     <div className="fixed inset-0 z-[102]">
       {/* Overlay */}
       <div
         className="fixed inset-0 bg-black max-w-[600px] mx-auto"
-        onClick={onClose}
+        onClick={handleClose}
         style={{
           pointerEvents: "auto",
           opacity: overlayOpacity * 0.4,
-          transition: isDragging ? "none" : "opacity 0.25s ease-out",
+          transition: isDragging ? "none" : "opacity 0.3s ease-out",
         }}
       />
 
@@ -156,18 +176,17 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
           className="relative w-full rounded-t-2xl bg-white pointer-events-auto"
           style={{
             maxHeight: "90vh",
-            transform: isClosing
-              ? `translate3d(0, 100%, 0)`
-              : `translate3d(0, ${dragY}px, 0)`,
+            transform: getTransform(),
             transition: isDragging
               ? "none"
-              : "transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              : "transform 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
             willChange: "transform",
           }}
         >
           {/* 위로 당길 때 아래 빈 공간 방지용 흰색 영역 */}
           <div className="absolute left-0 right-0 -bottom-[100px] h-[100px] bg-white" />
-          {/* Drag Handle Area - 더 넓은 터치 영역 */}
+
+          {/* Drag Handle Area */}
           <div
             className="flex flex-col items-center justify-center cursor-grab active:cursor-grabbing select-none"
             onMouseDown={(e) => {
@@ -194,18 +213,6 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
           </div>
         </div>
       </div>
-
-      {/* 열릴 때 애니메이션 (CSS-in-JS 대신 인라인) */}
-      <style jsx>{`
-        @keyframes slide-up {
-          from {
-            transform: translate3d(0, 100%, 0);
-          }
-          to {
-            transform: translate3d(0, 0, 0);
-          }
-        }
-      `}</style>
     </div>
   )
 }
