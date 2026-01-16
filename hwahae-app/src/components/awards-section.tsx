@@ -4,12 +4,12 @@ import { ChevronRight, Trophy, Award, Star, Sparkles, Leaf, Gem } from "lucide-r
 import Link from "next/link"
 
 const awards = [
-  { id: 195, label: "명예의 전당", icon: Trophy, bgColor: "bg-[#FFF8E1]", iconColor: "text-[#FFC107]", href: "/awards/195", badge: null },
-  { id: 196, label: "뷰티 어워드", icon: Award, bgColor: "bg-[#FCE4EC]", iconColor: "text-[#E91E63]", href: "/awards/196", badge: null },
-  { id: 197, label: "베스트 신제품", icon: Star, bgColor: "bg-[#E3F2FD]", iconColor: "text-[#2196F3]", href: "/awards/197", badge: "하반기" },
-  { id: 198, label: "효능/효과", icon: Sparkles, bgColor: "bg-[#F3E5F5]", iconColor: "text-[#9C27B0]", href: "/awards/198", badge: "하반기" },
-  { id: 231, label: "비건", icon: Leaf, bgColor: "bg-[#E8F5E9]", iconColor: "text-[#4CAF50]", href: "/awards/231", badge: "하반기" },
-  { id: 232, label: "넥스트 뷰티", icon: Gem, bgColor: "bg-[#FBE9E7]", iconColor: "text-[#FF5722]", href: "/awards/232", badge: "하반기" },
+  { id: 195, label: "명예의 전당", icon: Trophy, bgColor: "bg-[#FFF8E1]", iconColor: "text-[#FFC107]", href: "/awards/hall-of-fame", badge: null },
+  { id: 196, label: "뷰티 어워드", icon: Award, bgColor: "bg-[#FCE4EC]", iconColor: "text-[#E91E63]", href: "/awards/hall-of-fame", badge: null },
+  { id: 197, label: "베스트 신제품", icon: Star, bgColor: "bg-[#E3F2FD]", iconColor: "text-[#2196F3]", href: "/awards/efficacy", badge: "하반기" },
+  { id: 198, label: "효능/효과", icon: Sparkles, bgColor: "bg-[#F3E5F5]", iconColor: "text-[#9C27B0]", href: "/awards/efficacy", badge: "하반기" },
+  { id: 231, label: "비건", icon: Leaf, bgColor: "bg-[#E8F5E9]", iconColor: "text-[#4CAF50]", href: "/awards/efficacy", badge: "하반기" },
+  { id: 232, label: "넥스트 뷰티", icon: Gem, bgColor: "bg-[#FBE9E7]", iconColor: "text-[#FF5722]", href: "/awards/efficacy", badge: "하반기" },
 ]
 
 export default function AwardsSection() {
