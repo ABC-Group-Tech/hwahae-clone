@@ -22,12 +22,12 @@ export default function EventHeader() {
 
         {/* Right Icons */}
         <div className="flex items-center gap-3">
-          <button className="p-1.5" aria-label="검색">
+          <Link href="/search" className="p-1.5" aria-label="검색">
             <Search className="w-5 h-5 text-gray-700" />
-          </button>
-          <button className="p-1.5" aria-label="장바구니">
+          </Link>
+          <Link href="/cart" className="p-1.5" aria-label="장바구니">
             <ShoppingCart className="w-5 h-5 text-gray-700" />
-          </button>
+          </Link>
         </div>
       </div>
     </header>
