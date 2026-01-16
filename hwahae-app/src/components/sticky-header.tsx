@@ -14,13 +14,15 @@ const tabs = [
   { name: "어워드", href: "/awards" },
 ]
 
-// 스크롤 임계값: 이 값을 넘으면 compact 모드로 전환
-const SCROLL_THRESHOLD = 50
+// 스크롤 임계값: 스크롤 방향에 따라 다른 값 적용 (넓은 데드존)
+const SCROLL_THRESHOLD_DOWN = 120 // 아래로 스크롤 시 compact로 전환
+const SCROLL_THRESHOLD_UP = 80 // 위로 스크롤 시 expanded로 전환
 
 export default function StickyHeader() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isBannerVisible, setIsBannerVisible] = useState(true)
+  const lastScrollY = useRef(0)
   const ticking = useRef(false)
 
   const isActive = (href: string) => {
@@ -32,10 +34,21 @@ export default function StickyHeader() {
 
   const updateScrollState = useCallback(() => {
     const currentScrollY = window.scrollY
+    const scrollingDown = currentScrollY > lastScrollY.current
 
-    // 단순한 임계값 기반: 50px 넘으면 compact, 이하면 expanded
-    setIsScrolled(currentScrollY > SCROLL_THRESHOLD)
+    if (scrollingDown) {
+      // 아래로 스크롤: 120px 넘으면 compact 모드
+      if (currentScrollY > SCROLL_THRESHOLD_DOWN) {
+        setIsScrolled(true)
+      }
+    } else {
+      // 위로 스크롤: 80px 아래로 내려가면 expanded 모드
+      if (currentScrollY < SCROLL_THRESHOLD_UP) {
+        setIsScrolled(false)
+      }
+    }
 
+    lastScrollY.current = currentScrollY
     ticking.current = false
   }, [])
 
@@ -68,7 +81,7 @@ export default function StickyHeader() {
 
       {/* Header */}
       <header className={cn(
-        "bg-white shadow-sm transition-all duration-300 ease-in-out",
+        "bg-white shadow-sm transition-all duration-200 ease-in-out",
         isScrolled ? "py-2" : "py-3"
       )}>
         {isScrolled ? (
@@ -135,7 +148,7 @@ export default function StickyHeader() {
       {/* Navigation Tabs - animated visibility */}
       <nav
         className={cn(
-          "px-5 py-[13px] flex items-center gap-6 border-b border-[#E8E8E8] bg-white transition-all duration-300 ease-in-out overflow-hidden",
+          "px-5 py-[13px] flex items-center gap-6 border-b border-[#E8E8E8] bg-white transition-all duration-200 ease-in-out overflow-hidden",
           isScrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-[60px] opacity-100"
         )}
       >
