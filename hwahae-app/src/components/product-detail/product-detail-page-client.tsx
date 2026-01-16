@@ -16,7 +16,7 @@ export default function ProductDetailPageClient() {
         <main className="pb-20">
           {/* 첫 구매 혜택 배너 */}
           <Link
-            href="/deal-event/989"
+            href="/events/sample"
             className="flex items-center w-full px-5 py-4 bg-[#F9F3FF]"
           >
             <span className="flex flex-shrink-0 w-[42px] h-[42px] object-cover">
