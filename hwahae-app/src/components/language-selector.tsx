@@ -37,6 +37,8 @@ export default function LanguageSelector({ showLabel = true }: LanguageSelectorP
         </button>
       </SheetTrigger>
       <SheetContent side="bottom" className="rounded-t-2xl bg-white px-0 pb-6 max-h-[80vh] overflow-y-auto [&>button]:hidden max-w-[600px] mx-auto left-0 right-0">
+        <SheetTitle className="sr-only">언어 선택</SheetTitle>
+
         {/* Handle bar */}
         <div className="flex justify-center pt-2 pb-1 sticky top-0 bg-white z-10">
           <div className="w-10 h-1 rounded-full bg-gray-300" />
