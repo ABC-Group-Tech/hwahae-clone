@@ -17,6 +17,7 @@ const tabs = [
 // 스크롤 임계값: 스크롤 방향에 따라 다른 값 적용 (넓은 데드존)
 const SCROLL_THRESHOLD_DOWN = 120 // 아래로 스크롤 시 compact로 전환
 const SCROLL_THRESHOLD_UP = 80 // 위로 스크롤 시 expanded로 전환
+const SCROLL_VELOCITY_THRESHOLD = 5 // 스크롤 속도 임계값 (px per frame)
 
 export default function StickyHeader() {
   const pathname = usePathname()
@@ -34,17 +35,29 @@ export default function StickyHeader() {
 
   const updateScrollState = useCallback(() => {
     const currentScrollY = window.scrollY
-    const scrollingDown = currentScrollY > lastScrollY.current
+    const scrollDelta = currentScrollY - lastScrollY.current
+    const scrollingDown = scrollDelta > 0
+    const scrollVelocity = Math.abs(scrollDelta)
 
-    if (scrollingDown) {
-      // 아래로 스크롤: 120px 넘으면 compact 모드
-      if (currentScrollY > SCROLL_THRESHOLD_DOWN) {
+    // 빠른 스크롤 감지: 속도가 임계값을 넘으면 즉시 전환
+    if (scrollVelocity > SCROLL_VELOCITY_THRESHOLD) {
+      if (scrollingDown && currentScrollY > 60) {
+        // 빠르게 아래로 스크롤: 60px만 넘으면 즉시 compact
         setIsScrolled(true)
+      } else if (!scrollingDown && currentScrollY < 100) {
+        // 빠르게 위로 스크롤: 100px 아래로 내려오면 즉시 expanded
+        setIsScrolled(false)
       }
     } else {
-      // 위로 스크롤: 80px 아래로 내려가면 expanded 모드
-      if (currentScrollY < SCROLL_THRESHOLD_UP) {
-        setIsScrolled(false)
+      // 느린 스크롤: 기존 로직 (넓은 데드존)
+      if (scrollingDown) {
+        if (currentScrollY > SCROLL_THRESHOLD_DOWN) {
+          setIsScrolled(true)
+        }
+      } else {
+        if (currentScrollY < SCROLL_THRESHOLD_UP) {
+          setIsScrolled(false)
+        }
       }
     }
 
