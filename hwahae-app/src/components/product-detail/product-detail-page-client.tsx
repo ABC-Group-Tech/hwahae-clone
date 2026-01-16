@@ -10,6 +10,8 @@ import BottomSheet from "@/components/ui/bottom-sheet"
 
 export default function ProductDetailPageClient() {
   const [isRankingSheetOpen, setIsRankingSheetOpen] = useState(false)
+  const [isWrinkleSheetOpen, setIsWrinkleSheetOpen] = useState(false)
+  const [isWhiteningSheetOpen, setIsWhiteningSheetOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
@@ -468,7 +470,11 @@ export default function ProductDetailPageClient() {
                       </p>
                     </button>
                   </div>
-                  <button className="flex justify-between items-center py-2 w-full" type="button">
+                  <button
+                    className="flex justify-between items-center py-2 w-full"
+                    type="button"
+                    onClick={() => setIsWrinkleSheetOpen(true)}
+                  >
                     <span className="text-sm text-[#727171] flex gap-x-2 items-center text-left">
                       <span className="flex-shrink-0 w-6 h-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -490,7 +496,11 @@ export default function ProductDetailPageClient() {
                       <ChevronRight className="w-6 h-6" />
                     </p>
                   </button>
-                  <button className="flex justify-between items-center py-2 w-full" type="button">
+                  <button
+                    className="flex justify-between items-center py-2 w-full"
+                    type="button"
+                    onClick={() => setIsWhiteningSheetOpen(true)}
+                  >
                     <span className="text-sm text-[#727171] flex gap-x-2 items-center text-left">
                       <span className="flex-shrink-0 w-6 h-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -804,6 +814,55 @@ export default function ProductDetailPageClient() {
               </span>
             </div>
           </div>
+        </BottomSheet>
+
+        {/* 주름 개선 기능성 성분 바텀시트 */}
+        <BottomSheet isOpen={isWrinkleSheetOpen} onClose={() => setIsWrinkleSheetOpen(false)} title="">
+          <div className="flex justify-between items-center gap-2 -mt-4">
+            <span className="flex items-center gap-2 text-base font-bold text-[#1a1a1a]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path fill="#FFDC41" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18"></path>
+                <path fill="#FFBE14" d="M12 5.5A6.504 6.504 0 0 0 5.5 12c0 3.587 2.913 6.5 6.5 6.5s6.5-2.913 6.5-6.5H12z"></path>
+                <path fill="#fff" d="m19.652 12.516-.742-1.247-.742-1.247c-.033-.06-.127-.06-.16 0l-.742 1.247-.742 1.247a.092.092 0 0 0 .08.137h1.056c-.334 2.86-2.82 5.087-5.835 5.087-3.242 0-5.876-2.573-5.876-5.74 0-3.167 2.634-5.74 5.876-5.74a.47.47 0 0 0 .474-.463.471.471 0 0 0-.474-.463C8.06 5.333 5 8.323 5 12s3.061 6.667 6.825 6.667c3.536 0 6.457-2.645 6.79-6.014h.957c.073 0 .12-.078.08-.137"></path>
+              </svg>
+              주름 개선에 도움되는 기능성 성분
+            </span>
+            <span className="text-base font-bold text-[#1a1a1a]">1</span>
+          </div>
+          <p className="text-sm text-[#727171] mt-5">
+            해당 성분명은 대한민국 식품의약품안전처(MFDS)의 규정 및 가이드라인에 따른 표기에요
+          </p>
+          <ul className="flex flex-col bg-[#f5f5f5] rounded-lg mt-4">
+            <li className="px-4 py-3.5 flex items-center gap-2.5">
+              <span className="rounded-full text-white flex items-center justify-center w-6 h-6 text-xs bg-[#00D9A5]">1</span>
+              <span className="text-sm text-[#1a1a1a]">아데노신</span>
+            </li>
+          </ul>
+        </BottomSheet>
+
+        {/* 피부 미백 기능성 성분 바텀시트 */}
+        <BottomSheet isOpen={isWhiteningSheetOpen} onClose={() => setIsWhiteningSheetOpen(false)} title="">
+          <div className="flex justify-between items-center gap-2 -mt-4">
+            <span className="flex items-center gap-2 text-base font-bold text-[#1a1a1a]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path fill="#FFDC41" d="M19.5 9.563c0-4.468-3.845-8.029-8.378-7.513-3.354.385-6.094 3.086-6.55 6.462a7.57 7.57 0 0 0 3.244 7.32c.893.606 1.459 1.582 1.459 2.668h5.453c0-1.086.58-2.07 1.473-2.674A7.559 7.559 0 0 0 19.5 9.57z"></path>
+                <path fill="#FFCD28" d="M12 15a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"></path>
+                <path fill="#FA0" d="M14.348 11.126a.512.512 0 0 0-.74 0L12 12.799l-1.607-1.673a.512.512 0 0 0-.741 0 .565.565 0 0 0 0 .771l1.824 1.899v5.172h1.048v-5.172l1.824-1.899a.565.565 0 0 0 0-.771"></path>
+                <path fill="#FF961E" d="M9.278 18.5h5.45v2.8c0 .385-.307.7-.681.7H9.959a.693.693 0 0 1-.681-.7z"></path>
+              </svg>
+              피부 미백에 도움되는 기능성 성분
+            </span>
+            <span className="text-base font-bold text-[#1a1a1a]">1</span>
+          </div>
+          <p className="text-sm text-[#727171] mt-5">
+            해당 성분명은 대한민국 식품의약품안전처(MFDS)의 규정 및 가이드라인에 따른 표기에요
+          </p>
+          <ul className="flex flex-col bg-[#f5f5f5] rounded-lg mt-4">
+            <li className="px-4 py-3.5 flex items-center gap-2.5">
+              <span className="rounded-full text-white flex items-center justify-center w-6 h-6 text-xs bg-[#00D9A5]">1</span>
+              <span className="text-sm text-[#1a1a1a]">나이아신아마이드</span>
+            </li>
+          </ul>
         </BottomSheet>
       </div>
     </div>
