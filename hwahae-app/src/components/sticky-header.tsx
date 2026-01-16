@@ -14,17 +14,30 @@ const tabs = [
   { name: "어워드", href: "/awards" },
 ]
 
-// 스크롤 임계값: 스크롤 방향에 따라 다른 값 적용 (넓은 데드존)
-const SCROLL_THRESHOLD_DOWN = 120 // 아래로 스크롤 시 compact로 전환
-const SCROLL_THRESHOLD_UP = 80 // 위로 스크롤 시 expanded로 전환
-const SCROLL_VELOCITY_THRESHOLD = 5 // 스크롤 속도 임계값 (px per frame)
+// 스크롤 임계값
+const SCROLL_THRESHOLD_DOWN = 120 // 느린 스크롤: 아래로 120px 넘으면 compact
+const SCROLL_THRESHOLD_UP = 80 // 느린 스크롤: 위로 80px 아래면 expanded
+
+// 디바이스별 빠른 스크롤 감지 임계값
+const VELOCITY_THRESHOLD_MOBILE = 15 // 모바일/터치: 큰 스와이프 감지
+const VELOCITY_THRESHOLD_DESKTOP = 3 // 데스크톱/트랙패드: 작은 델타값 감지
+
+const FAST_SCROLL_DOWN = 40 // 빠른 스크롤: 40px만 넘으면 compact
+const FAST_SCROLL_UP = 70 // 빠른 스크롤: 70px 아래면 expanded
 
 export default function StickyHeader() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isBannerVisible, setIsBannerVisible] = useState(true)
   const lastScrollY = useRef(0)
+  const lastTimestamp = useRef(Date.now())
   const ticking = useRef(false)
+
+  // 터치 디바이스 감지
+  const isTouchDevice = useRef(false)
+  useEffect(() => {
+    isTouchDevice.current = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+  }, [])
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -39,29 +52,30 @@ export default function StickyHeader() {
     const scrollingDown = scrollDelta > 0
     const scrollVelocity = Math.abs(scrollDelta)
 
-    // 빠른 스크롤 감지: 속도가 임계값을 넘으면 즉시 전환
-    if (scrollVelocity > SCROLL_VELOCITY_THRESHOLD) {
-      if (scrollingDown && currentScrollY > 60) {
-        // 빠르게 아래로 스크롤: 60px만 넘으면 즉시 compact
+    // 디바이스별 속도 임계값 적용
+    const velocityThreshold = isTouchDevice.current
+      ? VELOCITY_THRESHOLD_MOBILE
+      : VELOCITY_THRESHOLD_DESKTOP
+
+    // 빠른 스크롤 감지: 속도가 임계값을 넘으면 더 낮은 지점에서 전환
+    const isFastScroll = scrollVelocity > velocityThreshold
+
+    if (scrollingDown) {
+      // 아래로 스크롤
+      const threshold = isFastScroll ? FAST_SCROLL_DOWN : SCROLL_THRESHOLD_DOWN
+      if (currentScrollY > threshold) {
         setIsScrolled(true)
-      } else if (!scrollingDown && currentScrollY < 100) {
-        // 빠르게 위로 스크롤: 100px 아래로 내려오면 즉시 expanded
-        setIsScrolled(false)
       }
     } else {
-      // 느린 스크롤: 기존 로직 (넓은 데드존)
-      if (scrollingDown) {
-        if (currentScrollY > SCROLL_THRESHOLD_DOWN) {
-          setIsScrolled(true)
-        }
-      } else {
-        if (currentScrollY < SCROLL_THRESHOLD_UP) {
-          setIsScrolled(false)
-        }
+      // 위로 스크롤
+      const threshold = isFastScroll ? FAST_SCROLL_UP : SCROLL_THRESHOLD_UP
+      if (currentScrollY < threshold) {
+        setIsScrolled(false)
       }
     }
 
     lastScrollY.current = currentScrollY
+    lastTimestamp.current = Date.now()
     ticking.current = false
   }, [])
 
