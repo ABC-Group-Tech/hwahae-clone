@@ -9,7 +9,7 @@ import ScrollToTopButton from "@/components/scroll-to-top-button"
 import EventHeader from "@/components/event-header"
 
 /**
- * 화해배송 이벤트 페이지 (/event/3)
+ * 화해배송 이벤트 페이지 (/events/3)
  *
  * 구조:
  * - EventHeader (Sticky)

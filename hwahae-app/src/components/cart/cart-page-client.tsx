@@ -229,7 +229,7 @@ export default function CartPageClient() {
                           </button>
 
                           {/* Product Image */}
-                          <Link href={`/product/${item.id}`} className="relative shrink-0">
+                          <Link href={`/products/${item.id}`} className="relative shrink-0">
                             <div className="w-[60px] h-[60px] bg-gray-200 rounded-lg flex items-center justify-center">
                               <span className="text-[10px] text-gray-400">이미지</span>
                             </div>
@@ -244,7 +244,7 @@ export default function CartPageClient() {
                           <div className="flex-1 min-w-0">
                             <div className="flex items-start justify-between gap-2">
                               <Link
-                                href={`/product/${item.id}`}
+                                href={`/products/${item.id}`}
                                 className="text-sm text-gray-900 line-clamp-2 hover:underline"
                               >
                                 {item.name}

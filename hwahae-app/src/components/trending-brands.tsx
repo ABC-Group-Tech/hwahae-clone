@@ -164,7 +164,7 @@ export default function TrendingBrands() {
                 <ul>
                   {brand.products.map((product) => (
                     <li key={product.id} className="bg-white w-[320px]">
-                      <Link className="flex items-center" href="/product/sample">
+                      <Link className="flex items-center" href="/products/sample">
                         <div className="flex-shrink-0">
                           <div className="relative overflow-hidden rounded-lg bg-gray-200 w-[96px] pt-[96px]">
                             {product.imageUrl ? (

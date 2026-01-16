@@ -70,7 +70,7 @@ export default function BeautyRoutine() {
           {routines.map((routine) => (
             <li key={routine.id} className="flex-shrink-0 last:pr-5">
               <Link
-                href={`/curator/${routine.curatorId}?tab_index=1`}
+                href={`/curators/${routine.curatorId}?tab_index=1`}
                 className="block w-[200px] h-[300px] rounded-lg overflow-hidden relative"
               >
                 {/* Background Image */}

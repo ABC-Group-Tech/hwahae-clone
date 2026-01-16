@@ -305,7 +305,7 @@ export default function EfficacyAwardsClient() {
               {products.map((product) => (
                 <Link
                   key={product.id}
-                  href={`/product/${product.id}`}
+                  href={`/products/${product.id}`}
                   className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors"
                 >
                   {/* Rank with Efficacy Icon */}

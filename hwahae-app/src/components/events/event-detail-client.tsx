@@ -225,7 +225,7 @@ export default function EventDetailClient() {
           <div className="grid grid-cols-2 gap-3">
             {eventProducts.map((product) => (
               <Link
-                href={`/product/${product.id}`}
+                href={`/products/${product.id}`}
                 key={product.id}
                 className={`relative ${product.soldOut ? "opacity-70" : ""}`}
               >
@@ -298,7 +298,7 @@ export default function EventDetailClient() {
           <h2 className="text-base font-bold text-gray-900 mb-3">다른 이벤트</h2>
           <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
             {relatedEvents.map((event) => (
-              <Link href={`/event/${event.id}`} key={event.id} className="flex-shrink-0 w-[200px]">
+              <Link href={`/events/${event.id}`} key={event.id} className="flex-shrink-0 w-[200px]">
                 <div className="aspect-[16/9] bg-gray-200 rounded-lg mb-2 flex items-center justify-center">
                   <span className="text-gray-500 text-xs">이벤트 썸네일</span>
                 </div>

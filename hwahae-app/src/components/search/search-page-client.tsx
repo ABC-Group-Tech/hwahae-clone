@@ -251,7 +251,7 @@ export default function SearchPageClient() {
               </div>
               <div className="space-y-3">
                 {purchaseRankings.map((product, index) => (
-                  <Link key={product.id} href={`/product/${product.id}`} className="flex items-center gap-3">
+                  <Link key={product.id} href={`/products/${product.id}`} className="flex items-center gap-3">
                     <span className={`w-5 text-sm font-bold ${index < 3 ? "text-[#f39800]" : "text-[#727171]"}`}>
                       {index + 1}
                     </span>
@@ -387,7 +387,7 @@ export default function SearchPageClient() {
                 {viewMode === "grid" ? (
                   <div className="grid grid-cols-2 gap-3">
                     {searchResults.map((product) => (
-                      <Link key={product.id} href={`/product/${product.id}`} className="block">
+                      <Link key={product.id} href={`/products/${product.id}`} className="block">
                         <div className="aspect-square bg-gray-200 rounded-lg flex items-center justify-center mb-2">
                           <span className="text-xs text-gray-400">IMAGE</span>
                         </div>
@@ -418,7 +418,7 @@ export default function SearchPageClient() {
                 ) : (
                   <div className="space-y-4">
                     {searchResults.map((product) => (
-                      <Link key={product.id} href={`/product/${product.id}`} className="flex gap-3">
+                      <Link key={product.id} href={`/products/${product.id}`} className="flex gap-3">
                         <div className="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center shrink-0">
                           <span className="text-xs text-gray-400">IMAGE</span>
                         </div>

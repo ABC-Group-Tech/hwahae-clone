@@ -1,4 +1,4 @@
-import CuratorProfileClient from "@/components/curator/curator-profile-client"
+import CuratorProfileClient from "@/components/curators/curator-profile-client"
 
 export const metadata = {
   title: "큐레이터 | ABCPharm",
