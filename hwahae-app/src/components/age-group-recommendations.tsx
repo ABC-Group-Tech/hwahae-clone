@@ -224,7 +224,7 @@ export default function AgeGroupRecommendations() {
   return (
     <section className="mt-[60px]">
       {/* Section Header */}
-      <Link href="/rankings?english_name=age&theme_id=1372" className="block">
+      <Link href="/rankings?tab=연령대별" className="block">
         <div className="px-5">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold leading-normal">나이대별 추천</h2>
@@ -288,7 +288,7 @@ export default function AgeGroupRecommendations() {
       <div className="px-5 mt-4">
         <Link
           className="inline-flex justify-center items-center appearance-none px-4 h-[44px] rounded-lg border border-gray-300 bg-white text-base font-semibold w-full"
-          href="/rankings?english_name=age&theme_id=1372"
+          href={`/rankings?tab=연령대별&filter=${activeAgeGroup}`}
         >
           {activeAgeGroup} 전체보기 <ChevronRight className="w-6 h-6" />
         </Link>

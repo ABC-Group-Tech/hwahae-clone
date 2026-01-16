@@ -255,7 +255,7 @@ export default function CategoryRankings() {
   return (
     <section className="mt-[40px]">
       {/* Section Header */}
-      <Link href="/rankings?english_name=category&theme_id=2" className="block">
+      <Link href="/rankings?tab=카테고리별" className="block">
         <div className="px-5">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold leading-normal">
@@ -327,7 +327,7 @@ export default function CategoryRankings() {
       <div className="px-5 mt-4">
         <Link
           className="inline-flex justify-center items-center appearance-none px-4 h-[44px] rounded-lg border border-gray-300 bg-white text-base font-semibold w-full"
-          href="/rankings?english_name=category&theme_id=2"
+          href="/rankings?tab=카테고리별"
         >
           카테고리 전체보기 <ChevronRight className="w-6 h-6" />
         </Link>

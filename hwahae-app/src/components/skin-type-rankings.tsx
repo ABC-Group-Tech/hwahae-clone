@@ -249,7 +249,7 @@ export default function SkinTypeRankings() {
   return (
     <section className="mt-[60px]">
       {/* Section Header */}
-      <Link href="/rankings?english_name=skin&theme_id=174" className="block">
+      <Link href="/rankings?tab=피부별" className="block">
         <div className="px-5">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold leading-normal">내 피부에 꼭 맞는 제품 랭킹</h2>
@@ -313,7 +313,7 @@ export default function SkinTypeRankings() {
       <div className="px-5 mt-4">
         <Link
           className="inline-flex justify-center items-center appearance-none px-4 h-[44px] rounded-lg border border-gray-300 bg-white text-base font-semibold w-full"
-          href="/rankings?english_name=skin&theme_id=174"
+          href={`/rankings?tab=피부별&filter=${activeSkinType}`}
         >
           {activeSkinType} 전체보기 <ChevronRight className="w-6 h-6" />
         </Link>
