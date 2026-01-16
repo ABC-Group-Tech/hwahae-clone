@@ -197,7 +197,7 @@ export default function CuratorProfileClient() {
             {reviews.map((review) => (
               <Link
                 key={review.id}
-                href={`/products/${review.id}`}
+                href={`/products/sample`}
                 className="flex gap-3 py-3 border-b border-[#f5f5f5] last:border-0"
               >
                 {/* Product thumbnail */}

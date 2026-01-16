@@ -339,7 +339,7 @@ export default function Event3Page() {
               <ul className="flex -mt-4 px-5 flex-wrap">
                 {sampleProducts.slice(0, 3).map((product, index) => (
                   <li key={product.id} className={`w-[calc(50%-8px)] mt-4 ${index % 2 === 1 ? "ml-4" : ""}`}>
-                    <Link href={`/goods/${product.id}`} className="block">
+                    <Link href={`/goods/sample`} className="block">
                       {/* 썸네일 */}
                       <div className="relative overflow-hidden rounded-lg bg-white outline outline-1 outline-gray-300 w-full pt-[100%]">
                         <picture className="absolute left-0 top-0 h-full w-full">
@@ -444,7 +444,7 @@ export default function Event3Page() {
               <ul className="flex -mt-4 px-5 flex-wrap">
                 {sampleProducts.slice(3, 6).map((product, index) => (
                   <li key={product.id} className={`w-[calc(50%-8px)] mt-4 ${index % 2 === 1 ? "ml-4" : ""}`}>
-                    <Link href={`/goods/${product.id}`} className="block">
+                    <Link href={`/goods/sample`} className="block">
                       {/* 썸네일 */}
                       <div className="relative overflow-hidden rounded-lg bg-white outline outline-1 outline-gray-300 w-full pt-[100%]">
                         <picture className="absolute left-0 top-0 h-full w-full">
