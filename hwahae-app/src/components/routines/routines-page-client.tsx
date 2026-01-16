@@ -150,7 +150,7 @@ export default function RoutinesPageClient() {
         <div className="px-4 pb-6">
           <div className="grid grid-cols-2 gap-3">
             {curators.map((curator) => (
-              <Link key={curator.id} href={`/curators/${curator.id}`} className="block group">
+              <Link key={curator.id} href="/curators/sample" className="block group">
                 <div className={`relative aspect-[3/4] rounded-xl overflow-hidden ${curator.bgColor}`}>
                   {/* Placeholder image area */}
                   <div className="absolute inset-0 flex items-center justify-center">
