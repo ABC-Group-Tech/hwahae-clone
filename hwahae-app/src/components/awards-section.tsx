@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronRight, Trophy, Award, Star, Sparkles, Leaf, Gem, TrendingUp } from "lucide-react"
+import { ChevronRight, Trophy, Award, Star, Sparkles, Leaf, Gem } from "lucide-react"
 import Link from "next/link"
 
 const awards = [
@@ -10,10 +10,6 @@ const awards = [
   { id: 198, label: "효능/효과", icon: Sparkles, bgColor: "bg-[#F3E5F5]", iconColor: "text-[#9C27B0]", href: "/awards/198", badge: "하반기" },
   { id: 231, label: "비건", icon: Leaf, bgColor: "bg-[#E8F5E9]", iconColor: "text-[#4CAF50]", href: "/awards/231", badge: "하반기" },
   { id: 232, label: "넥스트 뷰티", icon: Gem, bgColor: "bg-[#FBE9E7]", iconColor: "text-[#FF5722]", href: "/awards/232", badge: "하반기" },
-  { id: 253, label: "라이징 트렌드", icon: TrendingUp, bgColor: "bg-[#FFF3E0]", iconColor: "text-[#FF9800]", href: "/awards/253", badge: "하반기" },
-  { id: 116, label: "베스트 신제품", icon: Star, bgColor: "bg-[#E3F2FD]", iconColor: "text-[#2196F3]", href: "/awards/116", badge: "상반기" },
-  { id: 117, label: "효능/효과", icon: Sparkles, bgColor: "bg-[#F3E5F5]", iconColor: "text-[#9C27B0]", href: "/awards/117", badge: "상반기" },
-  { id: 152, label: "비건", icon: Leaf, bgColor: "bg-[#E8F5E9]", iconColor: "text-[#4CAF50]", href: "/awards/152", badge: "상반기" },
 ]
 
 export default function AwardsSection() {
